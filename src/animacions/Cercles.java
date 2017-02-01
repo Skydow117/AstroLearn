@@ -1,4 +1,4 @@
-package edu.fje.dam2;
+package animacions;
 
 import java.util.List;
 

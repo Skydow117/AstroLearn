@@ -1,5 +1,6 @@
-package edu.fje.dam2;
+package principal;
 
+import animacions.Cercles;
 import com.sun.javafx.tk.Toolkit;
 import java.awt.FontMetrics;
 import java.awt.Insets;
