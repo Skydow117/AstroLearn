@@ -11,38 +11,39 @@ package cossosCelestes;
  */
 public abstract class Astre {
     
-    String nom;
-    String descripcio;
-    double diametre;
-    double massa;
-    double volum;
-    float temperatura;
-    String galaxia;
+    String strNom;
+    String strDescripcio;
+    double dDiametre;
+    double dMassa;
+    double dVolum;
+    float fTemperatura;
+    String strGalaxia;
     
-    public abstract double calcularVolum();
     
-    public abstract void setNom(String nom);
-
-    public abstract String getNom();
-
-    public abstract double getDiametre();
-
-    public abstract void setDiametre(double diametre);
-
-    public abstract double getMassa();
-
-    public abstract void setMassa(double massa);
-
-    public abstract float getTemperatura();
-
-    public abstract void setTemperatura(float temperatura);
-
-    public abstract String getGalaxia();
-
-    public abstract void setGalaxia(String galaxia);
+    public abstract double calculardVolum();
     
+    public abstract void setStrNom(String strNom);
 
+    public abstract String getStrNom();
 
+    public abstract double getdDiametre();
+
+    public abstract void setdDiametre(double dDiametre);
+
+    public abstract double getdMassa();
+
+    public abstract void setdMassa(double dMassa);
+
+    public abstract float getfTemperatura();
+
+    public abstract void setfTemperatura(float fTemperatura);
+
+    public abstract String getStrGalaxia();
+
+    public abstract void setStrGalaxia(String galaxia);
     
+    public abstract String getStrDescripcio();
+    
+    public abstract void setStrDescripcio(String descripcio);
     
 }
