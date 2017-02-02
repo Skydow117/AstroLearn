@@ -11,101 +11,73 @@ package cossosCelestes;
  */
 public class Estrella extends Astre{
 
-    private String strBrillantor;
-    private long lAnysFinsApagar;
+    private String brillantor;
+    private long anysFinsApagar;
 
     public Estrella() {
     }
 
-    public String getStrBrillantor() {
-        return strBrillantor;
-    }
-
-    public void setStrBrillantor(String strBrillantor) {
-        this.strBrillantor = strBrillantor;
-    }
-
-    public long getlAnysFinsApagar() {
-        return lAnysFinsApagar;
-    }
-
-    public void setlAnysFinsApagar(long lAnysFinsApagar) {
-        this.lAnysFinsApagar = lAnysFinsApagar;
-    }
-
     @Override
-    public String getStrNom() {
-        return strNom;
-    }
-
-    @Override
-    public void setStrNom(String strNom) {
-        this.strNom = strNom;
-    }
-
-    @Override
-    public String getStrDescripcio() {
-        return strDescripcio;
-    }
-
-    @Override
-    public void setStrDescripcio(String strDescripcio) {
-        this.strDescripcio = strDescripcio;
-    }
-
-    @Override
-    public double getdDiametre() {
-        return dDiametre;
-    }
-
-    @Override
-    public void setdDiametre(double dDiametre) {
-        this.dDiametre = dDiametre;
-    }
-
-    @Override
-    public double getdMassa() {
-        return dMassa;
-    }
-
-    @Override
-    public void setdMassa(double dMassa) {
-        this.dMassa = dMassa;
-    }
-
-    public double getdVolum() {
-        return dVolum;
-    }
-
-    public void setdVolum(double dVolum) {
-        this.dVolum = dVolum;
-    }
-
-    @Override
-    public float getfTemperatura() {
-        return fTemperatura;
-    }
-
-    @Override
-    public void setfTemperatura(float fTemperatura) {
-        this.fTemperatura = fTemperatura;
-    }
-
-    @Override
-    public String getStrGalaxia() {
-        return strGalaxia;
-    }
-
-    @Override
-    public void setStrGalaxia(String strGalaxia) {
-        this.strGalaxia = strGalaxia;
-    }
-
-    @Override
-    public double calculardVolum() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double calcularVolum() {
+        return 0;
     }
     
-    
-    
+    @Override
+      public String getNom() {
+        return nom;
+    }
+
+    @Override
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public double getDiametre() {
+        return diametre;
+    }
+
+    @Override
+    public void setDiametre(double diametre) {
+        this.diametre = diametre;
+    }
+
+    @Override
+    public double getMassa() {
+        return massa;
+    }
+
+    @Override
+    public void setMassa(double massa) {
+        this.massa = massa;
+    }
+
+    public double getVolum() {
+        return volum;
+    }
+
+    public void setVolum(double volum) {
+        this.volum = volum;
+    }
+
+    @Override
+    public float getTemperatura() {
+        return temperatura;
+    }
+
+    @Override
+    public void setTemperatura(float temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    @Override
+    public String getGalaxia() {
+        return galaxia;
+    }
+
+    @Override
+    public void setGalaxia(String galaxia) {
+        this.galaxia = galaxia;
+    }
+
 }
