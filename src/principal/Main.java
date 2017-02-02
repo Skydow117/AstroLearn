@@ -24,42 +24,48 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        //StackPane root = new StackPane();
-
-        primaryStage.setTitle("Astro Learn");
-        Cercles cercles = new Cercles();
-        //Scene escenaPrincipal = new Scene(root, 300, 275);
-        HBox layout = new HBox(
-                cercles.crearSubscena()
-        );
-        VBox verticalOne =new VBox();
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        verticalOne.setStyle("-fx-background-color: #b3b3b3;");
+        Scene scene = new Scene(root);
         
-        Button boto1 = new Button("boto2");
-        Button boto2 = new Button("boto2");
-        boto1.setPrefSize(120, 30);
-        TabPane tabPane=new TabPane();
-        Tab tabPlanetes= new Tab("Planetes");
-        Tab tabSatelits= new Tab("Satelits");
-        Tab tabEstrelles= new Tab("Estrelles");
-        tabPlanetes.setContent(boto1);
-        tabSatelits.setContent(boto2);
-        tabPane.getTabs().add(tabPlanetes);
-        tabPane.getTabs().add(tabSatelits);
-        tabPane.getTabs().add(tabEstrelles);
-        
-        
-        
-        verticalOne.getChildren().add(tabPane);
-        layout.getChildren().add(verticalOne);
-
-        Scene scene = new Scene(layout, Color.CORNSILK);
-
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
         primaryStage.show();
+//        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        //StackPane root = new StackPane();
+//
+//        primaryStage.setTitle("Astro Learn");
+//        Cercles cercles = new Cercles();
+//        //Scene escenaPrincipal = new Scene(root, 300, 275);
+//        HBox layout = new HBox(
+//                cercles.crearSubscena()
+//        );
+//        VBox verticalOne =new VBox();
+//        
+//        verticalOne.setStyle("-fx-background-color: #b3b3b3;");
+//        
+//        Button boto1 = new Button("boto2");
+//        Button boto2 = new Button("boto2");
+//        boto1.setPrefSize(120, 30);
+//        TabPane tabPane=new TabPane();
+//        Tab tabPlanetes= new Tab("Planetes");
+//        Tab tabSatelits= new Tab("Satelits");
+//        Tab tabEstrelles= new Tab("Estrelles");
+//        tabPlanetes.setContent(boto1);
+//        tabSatelits.setContent(boto2);
+//        tabPane.getTabs().add(tabPlanetes);
+//        tabPane.getTabs().add(tabSatelits);
+//        tabPane.getTabs().add(tabEstrelles);
+//        
+//        
+//        
+//        verticalOne.getChildren().add(tabPane);
+//        layout.getChildren().add(verticalOne);
+//
+//        Scene scene = new Scene(layout, Color.CORNSILK);
+//
+//        primaryStage.setScene(scene);
+//        primaryStage.setFullScreen(true);
+//        primaryStage.show();
     }
 
 
