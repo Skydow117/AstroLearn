@@ -28,6 +28,7 @@ public class Main extends Application {
         
         Scene scene = new Scene(root);
         
+        primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
         primaryStage.show();
 //        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -64,7 +65,6 @@ public class Main extends Application {
 //        Scene scene = new Scene(layout, Color.CORNSILK);
 //
 //        primaryStage.setScene(scene);
-//        primaryStage.setFullScreen(true);
 //        primaryStage.show();
     }
 
