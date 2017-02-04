@@ -29,8 +29,8 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="191.0">
                                              <children>
-                                                <RadioButton fx:id="radioPlanetes01" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Mercuri" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                                                <RadioButton fx:id="radioPlanetes02" layoutX="20.0" layoutY="45.0" mnemonicParsing="false" text="Venus" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                                                <RadioButton fx:id="radioPlanetes01" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Mercuri" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                                <RadioButton fx:id="radioPlanetes02" layoutX="20.0" layoutY="45.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Venus" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
                                                 <RadioButton fx:id="radioPlanetes03" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" text="Terra" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
                                                 <RadioButton fx:id="radioPlanetes04" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" text="Mart" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="95.0" />
                                              </children>
