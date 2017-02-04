@@ -41,10 +41,23 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton radioSatelits02; 
     
     @FXML
+    private RadioButton radioPlanetes01; 
+    
+    @FXML
+    private RadioButton radioPlanetes02; 
+    
+    @FXML
+    private RadioButton radioPlanetes03; 
+    
+    @FXML
+    private RadioButton radioPlanetes04;
+    
+    @FXML
+    private RadioButton radioEstrelles01; 
+    
+    @FXML
     private ImageView imageViewSatelits01;
     
-    private Image a;
-
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -58,11 +71,20 @@ public class FXMLDocumentController implements Initializable {
         Cercles cercle = new Cercles();
         try {
             hbContenidor.getChildren().add(cercle.crearSubscena());
+            
+            //Tots els botons estàn dins el mateix ToggleGroup ja que nomes pot averhi una animaciò alhora.
             final ToggleGroup toggle01;
             toggle01 = new ToggleGroup();
             
+            radioPlanetes01.setToggleGroup(toggle01);
+            radioPlanetes02.setToggleGroup(toggle01);
+            radioPlanetes03.setToggleGroup(toggle01);
+            radioPlanetes04.setToggleGroup(toggle01);
+
             radioSatelits01.setToggleGroup(toggle01);
             radioSatelits02.setToggleGroup(toggle01);
+            
+            radioEstrelles01.setToggleGroup(toggle01);
             
              //File file = new File("src/imatges/solMiniatura.jpg");
             ClassLoader cldr = this.getClass().getClassLoader();
