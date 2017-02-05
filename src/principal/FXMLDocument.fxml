@@ -31,8 +31,9 @@
                                              <children>
                                                 <RadioButton fx:id="radioPlanetes01" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Mercuri" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
                                                 <RadioButton fx:id="radioPlanetes02" layoutX="20.0" layoutY="45.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Venus" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
-                                                <RadioButton fx:id="radioPlanetes03" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" text="Terra" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
-                                                <RadioButton fx:id="radioPlanetes04" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" text="Mart" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="95.0" />
+                                                <RadioButton fx:id="radioPlanetes03" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#accioRadioButtons" selected="true" text="Terra" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
+                                                <RadioButton fx:id="radioPlanetes04" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Mart" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="95.0" />
+                                                <ImageView fx:id="imageViewPlanetes" fitHeight="120.0" fitWidth="120.0" layoutX="184.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -41,8 +42,9 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <RadioButton fx:id="radioSatelits01" layoutX="37.0" layoutY="61.0" mnemonicParsing="false" text="Lluna" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                                                <RadioButton fx:id="radioSatelits02" mnemonicParsing="false" text="Rea" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                                                <RadioButton fx:id="radioSatelits01" layoutX="37.0" layoutY="61.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Lluna" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                                <RadioButton fx:id="radioSatelits02" mnemonicParsing="false" onAction="#accioRadioButtons" text="Rea" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                                                <ImageView fx:id="imageViewSatelits" fitHeight="120.0" fitWidth="120.0" layoutX="173.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -51,8 +53,8 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <RadioButton fx:id="radioEstrelles01" layoutX="39.0" layoutY="22.0" mnemonicParsing="false" text="Sol" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                                                <ImageView fx:id="imageViewSatelits01" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                                <RadioButton fx:id="radioEstrelles01" layoutX="39.0" layoutY="22.0" mnemonicParsing="false" onAction="#accioRadioButtons" text="Sol" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                                                <ImageView fx:id="imageViewEstrelles" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                                              </children></AnchorPane>
                                       </content>
                                     </Tab>

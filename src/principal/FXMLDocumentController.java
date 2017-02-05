@@ -29,7 +29,6 @@ import javax.swing.ImageIcon;
  */
 public class FXMLDocumentController implements Initializable {
 
-
     @FXML
     private HBox hbContenidor;
 
@@ -55,7 +54,13 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton radioEstrelles01;
 
     @FXML
-    private ImageView imageViewSatelits01;
+    private ImageView imageViewEstrelles;
+
+    @FXML
+    private ImageView imageViewSatelits;
+
+    @FXML
+    private ImageView imageViewPlanetes;
 
     private ArrayList<RadioButton> radioGrup = new ArrayList();
     private ArrayList<URL> imatgesToggleGroup = new ArrayList();
@@ -63,21 +68,61 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void accioRadioButtons(ActionEvent event) {
-        System.out.println("You clicked me!");
-        toggle01.getSelectedToggle();
-        
-        
-        
-        //Treure la animació ->
-        //hbContenidor.getChildren().remove(0);
-        
-        //Aquí anirán on es posen les imatges amb el indexof del toggle.
-        //Ara ja tenim el numero del radio per fer el canvi d'escena i canvoa la imatge
-        //Despres ho fare.
-        radioGrup.indexOf(toggle01.getSelectedToggle());
-        System.out.println( radioGrup.indexOf(toggle01.getSelectedToggle()));
-        
-        
+
+        System.out.println(radioGrup.indexOf(toggle01.getSelectedToggle()));
+
+        switch (radioGrup.indexOf(toggle01.getSelectedToggle())) {
+
+            case 0:
+                imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(0).toString()));
+                System.out.println(imatgesToggleGroup.get(0).toString());
+                break;
+            case 1:
+                imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(1).toString()));
+                System.out.println(imatgesToggleGroup.get(1).toString());
+
+                break;
+            case 2:
+                imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(2).toString()));
+                System.out.println(imatgesToggleGroup.get(2).toString());
+                break;
+            case 3:
+                imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(3).toString()));
+                System.out.println(imatgesToggleGroup.get(3).toString());
+                break;
+            case 4:
+                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(4).toString()));
+                System.out.println(imatgesToggleGroup.get(4).toString());
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(null);
+                break;
+            case 5:
+                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(5).toString()));
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(null);
+                System.out.println(imatgesToggleGroup.get(5).toString());
+                break;
+            case 6:
+                imageViewSatelits.setImage(null);
+                System.out.println(imatgesToggleGroup.get(6).toString());
+                imageViewEstrelles.setImage(new Image(imatgesToggleGroup.get(6).toString()));
+                imageViewPlanetes.setImage(null);
+                break;
+        }
+
+    }
+
+    public void valorsPerDefecte() {
+        imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(2).toString()));
+
     }
 
     public void carregarImatges() {
@@ -97,7 +142,6 @@ public class FXMLDocumentController implements Initializable {
             System.out.println(urlImatge.toString());
             imatgesToggleGroup.add(imageURL);
         }
-
     }
 
     public void iniciarToggleGroup() {
@@ -109,13 +153,13 @@ public class FXMLDocumentController implements Initializable {
 
         radioGrup.add(radioSatelits01);
         radioGrup.add(radioSatelits02);
-        
+
         radioGrup.add(radioEstrelles01);
-        
+
         for (int i = 0; i < 7; i++) {
-            
+
             radioGrup.get(i).setToggleGroup(toggle01);
-            
+
         }
 
         carregarImatges();
@@ -130,6 +174,8 @@ public class FXMLDocumentController implements Initializable {
 
             //Tots els botons estàn dins el mateix ToggleGroup ja que nomes pot averhi una animaciò alhora.
             iniciarToggleGroup();
+
+            valorsPerDefecte();
 
             //File file = new File("src/imatges/solMiniatura.jpg");
 //            ClassLoader cldr = this.getClass().getClassLoader();
