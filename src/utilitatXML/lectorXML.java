@@ -30,14 +30,16 @@ public class lectorXML {
      public void adquirir() {
         try {
 
-            File stocks = new File("planetes.xml");
-            /*DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            /*File stocks = new File("planetes.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(stocks);
             doc.getDocumentElement().normalize();
+            
 
             System.out.println("arrel " + doc.getDocumentElement().getNodeName());
-            NodeList nodes = doc.getElementsByTagName("stock");
+            */
+            /*NodeList nodes = doc.getElementsByTagName("stock");
             System.out.println("==========================");
 
             for (int i = 0; i < nodes.getLength(); i++) {
