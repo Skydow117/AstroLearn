@@ -27,11 +27,11 @@ import org.w3c.dom.NodeList;
  */
 public class lectorXML {
     
-     public void main() {
+     public void adquirir() {
         try {
 
             File stocks = new File("planetes.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            /*DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(stocks);
             doc.getDocumentElement().normalize();
@@ -49,7 +49,7 @@ public class lectorXML {
                     System.out.println("Stock preu: " + obtenirContingut("preu", element));
                     System.out.println("Stock quantitat: " + obtenirContingut("quantitat", element));
                 }
-            }
+            }*/
         } catch (Exception ex) {
             ex.printStackTrace();
         }

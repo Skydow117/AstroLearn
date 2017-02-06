@@ -22,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javax.swing.ImageIcon;
+import utilitatXML.lectorXML;
 
 /**
  *
@@ -176,6 +177,9 @@ public class FXMLDocumentController implements Initializable {
             iniciarToggleGroup();
 
             valorsPerDefecte();
+            
+            lectorXML lector = new lectorXML();
+            lector.adquirir();
 
             //File file = new File("src/imatges/solMiniatura.jpg");
 //            ClassLoader cldr = this.getClass().getClassLoader();
