@@ -9,7 +9,7 @@ package cossosCelestes;
  *
  * @author davidcastillomartinez
  */
-public class Satelit extends Astre {
+public class Satelit extends Astre{
     
     private String planetaQueOrbita;
     private double distanciaOrbitaMax;

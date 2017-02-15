@@ -6,6 +6,8 @@
 package principal;
 
 import animacions.Cercles;
+import astreList.AstreList;
+import cossosCelestes.Planeta;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,13 +17,23 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
+import utilitatXML.escriptorXML;
 import utilitatXML.lectorXML;
 
 /**
@@ -63,66 +75,99 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ImageView imageViewPlanetes;
 
+    @FXML
+    private Label lTitol;
+
+    @FXML
+    private Label lDescripcio;
+
     private ArrayList<RadioButton> radioGrup = new ArrayList();
     private ArrayList<URL> imatgesToggleGroup = new ArrayList();
+    private lectorXML lector = new lectorXML();
+    private int nUltimAstre = 2;
     final ToggleGroup toggle01 = new ToggleGroup();
 
     @FXML
     private void accioRadioButtons(ActionEvent event) {
+        canviaAstre(radioGrup.indexOf(toggle01.getSelectedToggle()));
+    }
 
-        System.out.println(radioGrup.indexOf(toggle01.getSelectedToggle()));
-
-        switch (radioGrup.indexOf(toggle01.getSelectedToggle())) {
+    public void canviaAstre(int index) {
+        switch (index) {
 
             case 0:
                 imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(0).toString()));
                 System.out.println(imatgesToggleGroup.get(0).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(0));
+                toggle01.selectToggle(radioPlanetes01);
                 break;
             case 1:
                 imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(1).toString()));
                 System.out.println(imatgesToggleGroup.get(1).toString());
-
+                canviarTextPlaneta(lector.obtenirPlaneta(1));
+                toggle01.selectToggle(radioPlanetes02);
                 break;
             case 2:
                 imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(2).toString()));
                 System.out.println(imatgesToggleGroup.get(2).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(2));
+                toggle01.selectToggle(radioPlanetes03);
                 break;
             case 3:
                 imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(3).toString()));
                 System.out.println(imatgesToggleGroup.get(3).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(3));
+                toggle01.selectToggle(radioPlanetes04);
+
                 break;
             case 4:
                 imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(4).toString()));
                 System.out.println(imatgesToggleGroup.get(4).toString());
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(null);
+                canviarTextPlaneta(lector.obtenirPlaneta(4));
+                toggle01.selectToggle(radioSatelits01);
                 break;
             case 5:
                 imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(5).toString()));
                 imageViewEstrelles.setImage(null);
                 imageViewPlanetes.setImage(null);
                 System.out.println(imatgesToggleGroup.get(5).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(5));
+                toggle01.selectToggle(radioSatelits02);
                 break;
             case 6:
                 imageViewSatelits.setImage(null);
                 System.out.println(imatgesToggleGroup.get(6).toString());
                 imageViewEstrelles.setImage(new Image(imatgesToggleGroup.get(6).toString()));
                 imageViewPlanetes.setImage(null);
+                canviarTextPlaneta(lector.obtenirPlaneta(6));
+                toggle01.selectToggle(radioEstrelles01);
                 break;
         }
 
+        nUltimAstre = radioGrup.indexOf(toggle01.getSelectedToggle());
+        System.out.println(nUltimAstre);
+        escriptorXML escriptorX = new escriptorXML();
+        escriptorX.escriure(String.valueOf(nUltimAstre));
     }
 
     public void valorsPerDefecte() {
         imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(2).toString()));
+
+    }
+
+    public void canviarTextPlaneta(Planeta planeta) {
+        lTitol.setText(planeta.getNom());
+        lDescripcio.setText(planeta.getDescripcio());
 
     }
 
@@ -171,21 +216,29 @@ public class FXMLDocumentController implements Initializable {
         // TODO
         Cercles cercle = new Cercles();
         try {
-            hbContenidor.getChildren().add(cercle.crearSubscena());
 
-            //Tots els botons estàn dins el mateix ToggleGroup ja que nomes pot averhi una animaciò alhora.
+            hbContenidor.fillHeightProperty();
+            hbContenidor.getChildren().add(cercle.crearSubscena(hbContenidor.heightProperty(), hbContenidor.widthProperty()));
             iniciarToggleGroup();
-
             valorsPerDefecte();
-            
-            lectorXML lector = new lectorXML();
-            lector.adquirir();
 
-            //File file = new File("src/imatges/solMiniatura.jpg");
-//            ClassLoader cldr = this.getClass().getClassLoader();
-//            java.net.URL imageURL   = cldr.getResource("imatges/solMiniatura.jpg");
-//            Image image = new Image(imageURL.toURI().toString());
-//            imageViewSatelits01.setImage(image);
+            try {
+                lector.adquirir();
+                canviaAstre(lector.getUltimPlaneta());
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            
+            Planeta nouP=new Planeta("Terra","Molt maca");
+            
+            AstreList<Planeta> astreList = new AstreList<Planeta>();
+            astreList.afegir(nouP);
+            
+            System.out.println(astreList.agafar(0).getNom());
+            
+          
+
         } catch (Exception ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }

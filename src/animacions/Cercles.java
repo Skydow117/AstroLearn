@@ -6,14 +6,18 @@ import principal.*;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.stage.Screen;
 
 
 public class Cercles {
@@ -25,16 +29,21 @@ public class Cercles {
      * @param pathOpacity The opacity of the path representation.
      * @return Generated path.
      */
-    private Planeta p1=new Planeta(11,87,57);
-    private Planeta p2=new Planeta(22,87,108);
-    private Planeta p3=new Planeta(36,87,149);
-    private Planeta p4=new Planeta(68,87,227);
+    private Planeta p1=new Planeta(11,87,(int)(57*1.5));
+    private Planeta p2=new Planeta(22,87,(int)(108*1.5));
+    private Planeta p3=new Planeta(36,87,(int)(149*1.5));
+    private Planeta p4=new Planeta(68,87,(int)(227*1.5));
     private Path generateCurvyPath(final double pathOpacity,int distance) {
         final Path path = new Path();
-        final int x=250;
-        final int y=250;
+        
+        final int x=500;
+        final int y=400;
+        Rectangle2D psb = Screen.getPrimary().getVisualBounds();
+        double p=(psb.getWidth()/psb.getHeight());
+        System.out.println(p);
+        
         path.getElements().add(new MoveTo(x, y-distance));
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1*10; i++) {
             path.getElements().add(new CubicCurveTo(x-distance, y-distance, x-distance, y+distance, x, y+distance));
             path.getElements().add(new CubicCurveTo(x+distance, y+distance, x+distance, y-distance, x, y-distance));   
         }
@@ -52,14 +61,14 @@ public class Cercles {
      */
     private PathTransition generatePathTransition(final Shape shape, final Path path,int periode) {
         final PathTransition pathTransition = new PathTransition();
-        pathTransition.setDuration(Duration.seconds(periode));
+        pathTransition.setDuration(Duration.seconds(periode*2));
         pathTransition.setDelay(Duration.seconds(0));
         pathTransition.setPath(path);
         pathTransition.setNode(shape);
         pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pathTransition.setCycleCount(Timeline.INDEFINITE);
         pathTransition.setAutoReverse(false);
-
+        
         return pathTransition;
     }
 
@@ -79,12 +88,10 @@ public class Cercles {
      * @param group Group to which animation is applied.
      */
     private void applyAnimation(final Group group) {
-        final Circle circle = new Circle(20, 20, 15);
-        final Circle circle2 = new Circle(10, 20, 30);
-        final Circle circle3 = new Circle(20, 20, 10);
-        final Circle circle4 = new Circle(10, 20, 5);
-        circle.setFill(Color.DARKRED);
-        circle2.setFill(Color.AQUAMARINE);
+        final Circle circle = new Circle(20, 20, 6,Color.ORANGE); //1
+        final Circle circle2 = new Circle(10, 20, 7,Color.AQUAMARINE); //2
+        final Circle circle3 = new Circle(20, 20, 8,Color.BLUE); //3
+        final Circle circle4 = new Circle(10, 20, 9+3,Color.RED); //7
         final Path path = generateCurvyPath(determinePathOpacity(),p1.getDistanciaEstrella());
         final Path path2 = generateCurvyPath(determinePathOpacity(),p2.getDistanciaEstrella());
         final Path path3 = generateCurvyPath(determinePathOpacity(),p3.getDistanciaEstrella());
@@ -97,7 +104,8 @@ public class Cercles {
         group.getChildren().add(circle3);
         group.getChildren().add(path4);
         group.getChildren().add(circle4);
-        group.getChildren().add(new Circle(250,250,5));
+        group.getChildren().add(new Circle(500 ,400,40,Color.YELLOW));
+        
         
         
        
@@ -112,9 +120,12 @@ public class Cercles {
     }
 
 
-    public SubScene crearSubscena() throws Exception {
+    public SubScene crearSubscena(ReadOnlyDoubleProperty y,ReadOnlyDoubleProperty x) throws Exception {
         final Group rootGroup = new Group();
         final SubScene scene = new SubScene(rootGroup, 500 , 500, true,SceneAntialiasing.BALANCED);
+        scene.heightProperty().bind(y);
+        scene.widthProperty().bind(x);
+        scene.setFill(Color.BLACK);
         
         applyAnimation(rootGroup);
         return scene;
