@@ -12,7 +12,7 @@ import java.util.Comparator;
  *
  * @author davidcastillomartinez
  */
-public class comparadorPlanetes implements Comparator<Planeta> {
+public class ComparadorPlanetes implements Comparator<Planeta> {
     @Override
     public int compare(Planeta a, Planeta b) {
                 

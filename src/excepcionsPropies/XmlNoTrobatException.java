@@ -9,8 +9,8 @@ package excepcionsPropies;
  *
  * @author davidcastillomartinez
  */
-public class xmlNoTrobatException extends Exception {
-    public xmlNoTrobatException(String message) {
+public class XmlNoTrobatException extends Exception {
+    public XmlNoTrobatException(String message) {
         super(message);
     }
 }

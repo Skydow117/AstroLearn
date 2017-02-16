@@ -6,7 +6,7 @@
 package utilitatXML;
 
 import cossosCelestes.Planeta;
-import excepcionsPropies.xmlNoTrobatException;
+import excepcionsPropies.XmlNoTrobatException;
 import java.io.File;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
@@ -27,19 +27,19 @@ import org.w3c.dom.NodeList;
  *
  * @author davidcastillomartinez
  */
-public class lectorXML {
+public class LectorXML {
 
-    public lectorXML() {
+    public LectorXML() {
 
     }
 
     ArrayList<Planeta> planetes = new ArrayList<Planeta>();
     private int ultimPlaneta;
 
-    public void adquirir() throws xmlNoTrobatException {
+    public void adquirir() throws XmlNoTrobatException {
         try {
 
-            File planetesXML = new File("planetes.xml");
+            File planetesXML = new File("fitxersPrograma/planetes.xml");
             System.out.println(planetesXML.getAbsolutePath());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -64,13 +64,13 @@ public class lectorXML {
                 }
             }
         } catch (Exception ex) {
-            xmlNoTrobatException excepcio = new xmlNoTrobatException("No s'ha trobat el fitxer planetes.xml");
+            XmlNoTrobatException excepcio = new XmlNoTrobatException("No s'ha trobat el fitxer planetes.xml");
             excepcio.printStackTrace();
             throw excepcio;
         }
 
         try {
-            File planetesXML = new File("ultimAstre.xml");
+            File planetesXML = new File("fitxersPrograma/ultimAstre.xml");
             System.out.println(planetesXML.getAbsolutePath());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -90,7 +90,7 @@ public class lectorXML {
             ultimPlaneta = Integer.parseInt(obtenirContingut("astre", element));
 
         } catch (Exception ex) {
-            xmlNoTrobatException excepcio = new xmlNoTrobatException("No s'ha trobat el fitxer ultimAstre.xml");
+            XmlNoTrobatException excepcio = new XmlNoTrobatException("No s'ha trobat el fitxer ultimAstre.xml");
             excepcio.printStackTrace();
             throw excepcio;
         }

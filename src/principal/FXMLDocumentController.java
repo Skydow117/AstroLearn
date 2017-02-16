@@ -33,8 +33,8 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
-import utilitatXML.escriptorXML;
-import utilitatXML.lectorXML;
+import utilitatXML.EscriptorXML;
+import utilitatXML.LectorXML;
 
 /**
  *
@@ -83,7 +83,7 @@ public class FXMLDocumentController implements Initializable {
 
     private ArrayList<RadioButton> radioGrup = new ArrayList();
     private ArrayList<URL> imatgesToggleGroup = new ArrayList();
-    private lectorXML lector = new lectorXML();
+    private LectorXML lector = new LectorXML();
     private int nUltimAstre = 2;
     final ToggleGroup toggle01 = new ToggleGroup();
 
@@ -156,7 +156,7 @@ public class FXMLDocumentController implements Initializable {
 
         nUltimAstre = radioGrup.indexOf(toggle01.getSelectedToggle());
         System.out.println(nUltimAstre);
-        escriptorXML escriptorX = new escriptorXML();
+        EscriptorXML escriptorX = new EscriptorXML();
         escriptorX.escriure(String.valueOf(nUltimAstre));
     }
 

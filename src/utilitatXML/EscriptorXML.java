@@ -22,9 +22,9 @@ import org.w3c.dom.Element;
  *
  * @author davidcastillomartinez
  */
-public class escriptorXML {
+public class EscriptorXML {
 
-    public escriptorXML() {
+    public EscriptorXML() {
 
     }
 
@@ -46,7 +46,7 @@ public class escriptorXML {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource origen = new DOMSource(nodeDocument);
-            StreamResult sortidaXML = new StreamResult(new File("ultimAstre.xml"));
+            StreamResult sortidaXML = new StreamResult(new File("fitxersPrograma/ultimAstre.xml"));
 
             transformer.transform(origen, sortidaXML);
 
