@@ -333,6 +333,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        
         Task task = new Task<Void>() {
             @Override
             public Void call() throws Exception {

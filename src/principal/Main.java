@@ -48,6 +48,7 @@ public class Main extends Application {
             public void handle(WindowEvent we) {
                 System.out.println(primaryStage.isFullScreen());
                 admConfig.salvar();
+                primaryStage.setFullScreen(false);
                 Platform.exit();
             }
         });
