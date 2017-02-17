@@ -39,7 +39,7 @@ public class LectorXML {
     public void adquirir() throws XmlNoTrobatException {
         try {
 
-            File planetesXML = new File("fitxersPrograma/planetes.xml");
+            File planetesXML = new File("fitxersPrograma/astres.xml");
             System.out.println(planetesXML.getAbsolutePath());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -64,7 +64,7 @@ public class LectorXML {
                 }
             }
         } catch (Exception ex) {
-            XmlNoTrobatException excepcio = new XmlNoTrobatException("No s'ha trobat el fitxer planetes.xml");
+            XmlNoTrobatException excepcio = new XmlNoTrobatException("No s'ha trobat el fitxer astres.xml");
             excepcio.printStackTrace();
             throw excepcio;
         }

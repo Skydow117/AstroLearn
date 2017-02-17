@@ -10,6 +10,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,10 +43,12 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
                 System.out.println(primaryStage.isFullScreen());
                 admConfig.salvar();
+                Platform.exit();
             }
         });
 

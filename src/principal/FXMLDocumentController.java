@@ -8,21 +8,34 @@ package principal;
 import animacions.Cercles;
 import astreList.AstreList;
 import cossosCelestes.Planeta;
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundImage;
@@ -31,7 +44,12 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javax.swing.ImageIcon;
 import utilitatXML.EscriptorXML;
 import utilitatXML.LectorXML;
@@ -81,15 +99,116 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label lDescripcio;
 
+    @FXML
+    public Label lbDies;
+
+    @FXML
+    private AnchorPane apMainAnchor;
+
     private ArrayList<RadioButton> radioGrup = new ArrayList();
     private ArrayList<URL> imatgesToggleGroup = new ArrayList();
     private LectorXML lector = new LectorXML();
     private int nUltimAstre = 2;
     final ToggleGroup toggle01 = new ToggleGroup();
+    public int nDies = 0;
 
     @FXML
     private void accioRadioButtons(ActionEvent event) {
         canviaAstre(radioGrup.indexOf(toggle01.getSelectedToggle()));
+    }
+
+    @FXML
+    private void obreFitxerDadesXML(ActionEvent event) throws IOException {
+        File file = new File("fitxersPrograma/astres.xml");
+
+        Desktop desktop = Desktop.getDesktop();
+
+        desktop.open(file);
+    }
+
+    @FXML
+    private void obreFitxerUltimAstreXML(ActionEvent event) throws IOException {
+        File file = new File("fitxersPrograma/ultimAstre.xml");
+
+        Desktop desktop = Desktop.getDesktop();
+
+        desktop.open(file);
+    }
+
+    @FXML
+    private void obreFitxerConfiguracio(ActionEvent event) throws IOException {
+        File file = new File("fitxersPrograma/configuracio.txt");
+
+        Desktop desktop = Desktop.getDesktop();
+
+        desktop.open(file);
+    }
+
+    @FXML
+    private void obreDialeg(ActionEvent event) throws IOException {
+        Stage stage = (Stage) apMainAnchor.getScene().getWindow();
+
+        Stage dialog = new Stage();
+
+        dialog.initOwner(stage);
+        dialog.initModality(Modality.APPLICATION_MODAL);
+
+        ///
+        Label label = new Label();
+        label.setAlignment(Pos.CENTER);
+        label.setText("                          ASTRO LEARN©\n"
+                + "\nAstro Learn és un programa desenvolupat per "
+                + "\nDavid Castillo i Esteve Cabrera com a projecte"
+                + "\nde JavaFX per a l'assignatura de Java durant"
+                + "\nl'any 2017 al curs DAM 2.\n"
+                + "\nEl propòsit d'aquest programa és ensenyar a "
+                + "\nalumnes de secundària o primària coneixements "
+                + "\nastrònomics d'una forma més divertida amb "
+                + "\nl'utilització d'animacions.\n"
+                + "\nEn quant als fitxer de configuracó, es recomana"
+                + "\nno modificarlos excepte previa lectura del fitxer"
+                + "\nreadme.txt de la carpeta del programa.\n\n\n\n");
+
+        Button btn = new Button();
+        btn.setText("Sortir d'aqui");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                dialog.close();
+
+            }
+        });
+
+        StackPane root = new StackPane();
+
+        VBox vbox2 = new VBox();
+        vbox2.getChildren().add(label);
+        vbox2.getChildren().add(btn);
+        vbox2.setPadding(new Insets(10, 10, 10, 10));
+
+        vbox2.setAlignment(Pos.CENTER);
+
+        root.getChildren().add(vbox2);
+
+        Scene scene = new Scene(root, 300, 250);
+
+        dialog.setTitle("En quant a AstroLearn");
+        dialog.setScene(scene);
+        dialog.setResizable(false);
+        //
+        dialog.setScene(scene);
+        dialog.show();
+        dialog.setWidth(325);
+
+        dialog.setHeight(400);
+        dialog.centerOnScreen();
+
+    }
+
+    @FXML
+    private void tancarFinestra(ActionEvent event) throws IOException, Throwable {
+        Platform.exit();
     }
 
     public void canviaAstre(int index) {
@@ -213,7 +332,30 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                int i = 0;
+                while (true) {
+                    final int finalI = i;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            lbDies.setText("Díes terrestres: " + finalI);
+                        }
+                    });
+                    i++;
+                    Thread.sleep(12000);
+                }
+            }
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
+
+        //ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        //executor.scheduleAtFixedRate(contaDies, 0, 3, TimeUnit.SECONDS);
         Cercles cercle = new Cercles();
         try {
 
@@ -229,15 +371,13 @@ public class FXMLDocumentController implements Initializable {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            
-            Planeta nouP=new Planeta("Terra","Molt maca");
-            
+
+            Planeta nouP = new Planeta("Terra", "Molt maca");
+
             AstreList<Planeta> astreList = new AstreList<Planeta>();
             astreList.afegir(nouP);
-            
+
             System.out.println(astreList.agafar(0).getNom());
-            
-          
 
         } catch (Exception ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);

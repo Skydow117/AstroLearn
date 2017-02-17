@@ -23,12 +23,13 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.descripcio = descripcio;
     }
 
-    public int getDistanciaEstrella() {
-        return distanciaEstrella;
-    }
-
-    public void setDistanciaEstrella(int distanciaEstrella) {
+    public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre,boolean anells) {
+        this.nom = nom;
+        this.descripcio = descripcio;
         this.distanciaEstrella = distanciaEstrella;
+        this.diametre = diametre;
+        this.anells=anells;
+
     }
 
     public Planeta(int periode, double massa, int distanciaEstrella) {
@@ -36,6 +37,14 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.periode = periode;
         this.distanciaEstrella = distanciaEstrella;
 
+    }
+
+    public int getDistanciaEstrella() {
+        return distanciaEstrella;
+    }
+
+    public void setDistanciaEstrella(int distanciaEstrella) {
+        this.distanciaEstrella = distanciaEstrella;
     }
 
     public int getPeriode() {
@@ -123,7 +132,7 @@ public class Planeta extends Astre implements Comparable<Planeta> {
             resultado = 1;
         } else if (this.distanciaEstrella > o.distanciaEstrella) {
             resultado = -1;
-        }  else {
+        } else {
             resultado = 0;
         }
         return resultado;
