@@ -40,6 +40,8 @@ public abstract class Astre {
     public abstract String getGalaxia();
 
     public abstract void setGalaxia(String galaxia);
+
+    public abstract String getDescripcio();
     
 
 

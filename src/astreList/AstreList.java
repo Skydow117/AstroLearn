@@ -6,6 +6,7 @@
 package astreList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class AstreList<T> {
 
-    ArrayList<T> llista;
+    List<T> llista;
 
     public AstreList() {
 
@@ -27,6 +28,10 @@ public class AstreList<T> {
     public T agafar(int index) {
         return llista.get(index);
 
+    }
+
+    public int mida() {
+        return llista.size();
     }
 
 }

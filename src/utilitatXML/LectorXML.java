@@ -5,7 +5,11 @@
  */
 package utilitatXML;
 
+import astreList.AstreList;
+import cossosCelestes.Astre;
+import cossosCelestes.Estrella;
 import cossosCelestes.Planeta;
+import cossosCelestes.Satelit;
 import excepcionsPropies.XmlNoTrobatException;
 import java.io.File;
 import java.util.ArrayList;
@@ -33,7 +37,7 @@ public class LectorXML {
 
     }
 
-    ArrayList<Planeta> planetes = new ArrayList<Planeta>();
+    AstreList<Astre> astres = new AstreList<Astre>();
     private int ultimPlaneta;
 
     public void adquirir() throws XmlNoTrobatException {
@@ -48,7 +52,7 @@ public class LectorXML {
 
             System.out.println("arrel " + doc.getDocumentElement().getNodeName());
 
-            NodeList nodes = doc.getElementsByTagName("planeta");
+            NodeList nodes = doc.getElementsByTagName("astre");
             System.out.println("==========================");
 
             for (int i = 0; i < nodes.getLength(); i++) {
@@ -57,10 +61,31 @@ public class LectorXML {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
 
-                    Planeta planeta = new Planeta(obtenirContingut("nom", element), obtenirContingut("descripcio", element));
-                    planetes.add(planeta);
-                    System.out.println(planeta.getNom());
-                    System.out.println(planeta.getDescripcio());
+                    if (obtenirContingut("tipus", element).equals("planeta")) {
+
+                        Planeta planeta = new Planeta(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Integer.parseInt(obtenirContingut("distanciaestrella", element)), Double.parseDouble(obtenirContingut("diametre", element)), Boolean.parseBoolean(obtenirContingut("anells", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("galaxia", element));
+
+                        astres.afegir(planeta);
+                        System.out.println(planeta.getNom());
+                        System.out.println(planeta.getDescripcio());
+                    }
+
+                    if (obtenirContingut("tipus", element).equals("satelit")) {
+
+                        Satelit satelit = new Satelit(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Double.parseDouble(obtenirContingut("diametre", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("galaxia", element), obtenirContingut("planetaorbita", element), Double.parseDouble(obtenirContingut("distanciaorbitamax", element)), Double.parseDouble(obtenirContingut("distanciaorbitamin", element)));
+
+                        astres.afegir(satelit);
+                        System.out.println(satelit.getNom());
+                        System.out.println(satelit.getDescripcio());
+                    }
+
+                    if (obtenirContingut("tipus", element).equals("estrella")) {
+
+                        Estrella estrella = new Estrella(obtenirContingut("nom", element), obtenirContingut("descripcio", element), obtenirContingut("brillantor", element), Double.parseDouble(obtenirContingut("diametre", element)), Long.parseLong(obtenirContingut("anysapagar", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("galaxia", element));
+                        astres.afegir(estrella);
+                        System.out.println(estrella.getNom());
+                        System.out.println(estrella.getDescripcio());
+                    }
                 }
             }
         } catch (Exception ex) {
@@ -96,20 +121,20 @@ public class LectorXML {
         }
     }
 
-    public int getUltimPlaneta(){
+    public int getUltimPlaneta() {
         return ultimPlaneta;
     }
-    
+
     private static String obtenirContingut(String etiqueta, Element element) {
         NodeList nodes = element.getElementsByTagName(etiqueta).item(0).getChildNodes();
         Node node = (Node) nodes.item(0);
         return node.getNodeValue();
     }
 
-    public Planeta obtenirPlaneta(int index) {
+    public Astre obtenirPlaneta(int index) {
 
-        if (index <= planetes.size()) {
-            return planetes.get(index);
+        if (index <= astres.mida()) {
+            return astres.agafar(index);
 
         } else {
             return null;

@@ -7,6 +7,7 @@ package principal;
 
 import animacions.Cercles;
 import astreList.AstreList;
+import cossosCelestes.Astre;
 import cossosCelestes.Planeta;
 import java.awt.Desktop;
 import java.io.File;
@@ -284,7 +285,7 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
-    public void canviarTextPlaneta(Planeta planeta) {
+    public void canviarTextPlaneta(Astre planeta) {
         lTitol.setText(planeta.getNom());
         lDescripcio.setText(planeta.getDescripcio());
 

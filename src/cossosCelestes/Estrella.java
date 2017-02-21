@@ -9,7 +9,7 @@ package cossosCelestes;
  *
  * @author davidcastillomartinez
  */
-public class Estrella extends Astre{
+public class Estrella extends Astre {
 
     private String brillantor;
     private long anysFinsApagar;
@@ -17,13 +17,26 @@ public class Estrella extends Astre{
     public Estrella() {
     }
 
+    public Estrella(String nom, String descripcio, String brillantor, double diametre, long anysFinsApagar, double massa, double volum, float temperatura, String galaxia) {
+        this.nom = nom;
+        this.descripcio = descripcio;
+        this.brillantor = brillantor;
+        this.diametre = diametre;
+        this.anysFinsApagar = anysFinsApagar;
+        this.volum = volum;
+        this.massa = massa;
+        this.galaxia = galaxia;
+        this.temperatura = temperatura;
+
+    }
+
     @Override
     public double calcularVolum() {
         return 0;
     }
-    
+
     @Override
-      public String getNom() {
+    public String getNom() {
         return nom;
     }
 
@@ -78,6 +91,11 @@ public class Estrella extends Astre{
     @Override
     public void setGalaxia(String galaxia) {
         this.galaxia = galaxia;
+    }
+
+    @Override
+    public String getDescripcio() {
+        return this.descripcio;
     }
 
 }

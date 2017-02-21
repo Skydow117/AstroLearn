@@ -23,12 +23,16 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.descripcio = descripcio;
     }
 
-    public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre,boolean anells) {
+    public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre,boolean anells,double massa,double volum,float temperatura,String galaxia) {
         this.nom = nom;
         this.descripcio = descripcio;
         this.distanciaEstrella = distanciaEstrella;
         this.diametre = diametre;
         this.anells=anells;
+        this.volum=volum;
+        this.massa=massa;
+        this.galaxia=galaxia;
+        this.temperatura=temperatura;
 
     }
 
