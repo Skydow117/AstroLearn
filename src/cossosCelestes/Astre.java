@@ -10,17 +10,17 @@ package cossosCelestes;
  * @author davidcastillomartinez
  */
 public abstract class Astre {
-    
+
     String nom;
     String descripcio;
     double diametre;
     double massa;
     double volum;
     float temperatura;
-    String galaxia;
-    
+    String periodeOrbital;
+
     public abstract double calcularVolum();
-    
+
     public abstract void setNom(String nom);
 
     public abstract String getNom();
@@ -35,16 +35,14 @@ public abstract class Astre {
 
     public abstract float getTemperatura();
 
+    public abstract double getVolum();
+
     public abstract void setTemperatura(float temperatura);
 
-    public abstract String getGalaxia();
+    public abstract String getPeriodeOrbital();
 
-    public abstract void setGalaxia(String galaxia);
+    public abstract void setPeriodeOrbital(String periodeOrbital);
 
     public abstract String getDescripcio();
-    
 
-
-    
-    
 }

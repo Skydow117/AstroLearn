@@ -6,6 +6,7 @@
 package astreList;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,11 +15,11 @@ import java.util.List;
  */
 public class AstreList<T> {
 
-    List<T> llista;
+    LinkedList<T> llista;
 
     public AstreList() {
 
-        llista = new ArrayList<T>();
+        llista = new LinkedList<T>();
     }
 
     public void afegir(T objecte) {

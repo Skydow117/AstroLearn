@@ -8,12 +8,15 @@ package principal;
 import animacions.Cercles;
 import astreList.AstreList;
 import cossosCelestes.Astre;
+import cossosCelestes.Estrella;
 import cossosCelestes.Planeta;
+import cossosCelestes.Satelit;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -33,6 +36,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -83,6 +88,18 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton radioPlanetes04;
 
     @FXML
+    private RadioButton radioPlanetes05;
+
+    @FXML
+    private RadioButton radioPlanetes06;
+
+    @FXML
+    private RadioButton radioPlanetes07;
+
+    @FXML
+    private RadioButton radioPlanetes08;
+
+    @FXML
     private RadioButton radioEstrelles01;
 
     @FXML
@@ -104,10 +121,34 @@ public class FXMLDocumentController implements Initializable {
     public Label lbDies;
 
     @FXML
+    public Label label00;
+
+    @FXML
+    public Label label01;
+
+    @FXML
+    public Label label02;
+
+    @FXML
+    public Label label03;
+
+    @FXML
+    public Label label04;
+
+    @FXML
+    public Label label05;
+
+    @FXML
+    public Label label06;
+
+    @FXML
     private AnchorPane apMainAnchor;
 
+    @FXML
+    private TabPane tabGroup01;
+
     private ArrayList<RadioButton> radioGrup = new ArrayList();
-    private ArrayList<URL> imatgesToggleGroup = new ArrayList();
+    private List<URL> imatgesToggleGroup = new ArrayList();
     private LectorXML lector = new LectorXML();
     private int nUltimAstre = 2;
     final ToggleGroup toggle01 = new ToggleGroup();
@@ -246,31 +287,69 @@ public class FXMLDocumentController implements Initializable {
                 System.out.println(imatgesToggleGroup.get(3).toString());
                 canviarTextPlaneta(lector.obtenirPlaneta(3));
                 toggle01.selectToggle(radioPlanetes04);
-
                 break;
             case 4:
-                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(4).toString()));
-                System.out.println(imatgesToggleGroup.get(4).toString());
+                System.out.println("4");
+                imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
-                imageViewPlanetes.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(4).toString()));
+                System.out.println(imatgesToggleGroup.get(4).toString());
                 canviarTextPlaneta(lector.obtenirPlaneta(4));
-                toggle01.selectToggle(radioSatelits01);
+                toggle01.selectToggle(radioPlanetes05);
                 break;
             case 5:
-                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(5).toString()));
+                imageViewSatelits.setImage(null);
                 imageViewEstrelles.setImage(null);
-                imageViewPlanetes.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(5).toString()));
                 System.out.println(imatgesToggleGroup.get(5).toString());
                 canviarTextPlaneta(lector.obtenirPlaneta(5));
-                toggle01.selectToggle(radioSatelits02);
+                toggle01.selectToggle(radioPlanetes06);
                 break;
+
             case 6:
                 imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(6).toString()));
                 System.out.println(imatgesToggleGroup.get(6).toString());
-                imageViewEstrelles.setImage(new Image(imatgesToggleGroup.get(6).toString()));
-                imageViewPlanetes.setImage(null);
                 canviarTextPlaneta(lector.obtenirPlaneta(6));
+                toggle01.selectToggle(radioPlanetes07);
+                break;
+            case 7:
+                imageViewSatelits.setImage(null);
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(7).toString()));
+                System.out.println(imatgesToggleGroup.get(7).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(7));
+                toggle01.selectToggle(radioPlanetes08);
+                break;
+
+            case 8:
+                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(8).toString()));
+                System.out.println(imatgesToggleGroup.get(8).toString());
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(null);
+                canviarTextPlaneta(lector.obtenirPlaneta(8));
+                toggle01.selectToggle(radioSatelits01);
+                tabGroup01.getSelectionModel().select(1);
+
+                break;
+            case 9:
+                imageViewSatelits.setImage(new Image(imatgesToggleGroup.get(9).toString()));
+                imageViewEstrelles.setImage(null);
+                imageViewPlanetes.setImage(null);
+                System.out.println(imatgesToggleGroup.get(9).toString());
+                canviarTextPlaneta(lector.obtenirPlaneta(9));
+                toggle01.selectToggle(radioSatelits02);
+                tabGroup01.getSelectionModel().select(1);
+                break;
+            case 10:
+                imageViewSatelits.setImage(null);
+                System.out.println(imatgesToggleGroup.get(10).toString());
+                imageViewEstrelles.setImage(new Image(imatgesToggleGroup.get(10).toString()));
+                imageViewPlanetes.setImage(null);
+                canviarTextPlaneta(lector.obtenirPlaneta(10));
                 toggle01.selectToggle(radioEstrelles01);
+                tabGroup01.getSelectionModel().select(2);
                 break;
         }
 
@@ -285,10 +364,43 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
-    public void canviarTextPlaneta(Astre planeta) {
-        lTitol.setText(planeta.getNom());
-        lDescripcio.setText(planeta.getDescripcio());
+    public void canviarTextPlaneta(Astre astre) {
+        lTitol.setText(astre.getNom());
+        lDescripcio.setText(astre.getDescripcio());
+        label00.setText("Diàmetre : " + astre.getDiametre());
+        label01.setText("Massa : " + astre.getMassa());
+        label02.setText("Volum : " + astre.getVolum());
+        label03.setText("Temperatura : " + astre.getTemperatura());
 
+        if (astre instanceof Planeta) {
+            Planeta planetaCanv = (Planeta) astre;
+            label05.setText("Distancia fins la estrella : " + planetaCanv.getDistanciaEstrella());
+            label04.setText("Periode Orbital : " + planetaCanv.getPeriodeOrbital());
+
+            if (planetaCanv.getAnells()) {
+                label06.setText("Té anells : Cert");
+
+            } else {
+                label06.setText("Té anells : Fals");
+
+            }
+
+        }
+
+        if (astre instanceof Estrella) {
+            Estrella estrellaCanv = (Estrella) astre;
+            label05.setText("Anys fins que s'apagui : " + estrellaCanv.getAnysFinsApagar());
+            label06.setText("Brillantor : " + estrellaCanv.getBrillantor());
+            label04.setText("Galàxia : " + estrellaCanv.getGalaxia());
+
+        }
+        if (astre instanceof Satelit) {
+            Satelit satelitCanv = (Satelit) astre;
+            label05.setText("Planeta que orbita : " + satelitCanv.getPlanetaQueOrbita());
+            label06.setText("Distància del planeta : " + satelitCanv.getDistanciaOrbitaMax());
+            label04.setText("Periode Orbital : " + satelitCanv.getPeriodeOrbital());
+
+        }
     }
 
     public void carregarImatges() {
@@ -299,7 +411,7 @@ public class FXMLDocumentController implements Initializable {
         StringBuilder urlImatge = new StringBuilder();
         urlImatge.append("imatges/miniatura0.jpg");
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 11; i++) {
 
             urlImatge.delete(17, 24);
             urlImatge.append(i + ".jpg");
@@ -316,13 +428,17 @@ public class FXMLDocumentController implements Initializable {
         radioGrup.add(radioPlanetes02);
         radioGrup.add(radioPlanetes03);
         radioGrup.add(radioPlanetes04);
+        radioGrup.add(radioPlanetes05);
+        radioGrup.add(radioPlanetes06);
+        radioGrup.add(radioPlanetes07);
+        radioGrup.add(radioPlanetes08);
 
         radioGrup.add(radioSatelits01);
         radioGrup.add(radioSatelits02);
 
         radioGrup.add(radioEstrelles01);
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 11; i++) {
 
             radioGrup.get(i).setToggleGroup(toggle01);
 
@@ -334,7 +450,6 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
         Task task = new Task<Void>() {
             @Override
             public Void call() throws Exception {

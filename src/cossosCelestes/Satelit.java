@@ -15,13 +15,13 @@ public class Satelit extends Astre{
     private double distanciaOrbitaMax;
     private double distanciaOrbitaMin;
 
-    public Satelit(String nom, String descripcio,double diametre,double massa,double volum,float temperatura,String galaxia,String planetaQueOrbita, double distanciaOrbitaMax,double distanciaOrbitaMin ) {
+    public Satelit(String nom, String descripcio,double diametre,double massa,double volum,float temperatura,String periodeOrbital,String planetaQueOrbita, double distanciaOrbitaMax,double distanciaOrbitaMin ) {
         this.nom = nom;
         this.descripcio = descripcio;
         this.diametre = diametre;
         this.volum=volum;
         this.massa=massa;
-        this.galaxia=galaxia;
+        this.periodeOrbital=periodeOrbital;
         this.temperatura=temperatura;
         this.planetaQueOrbita=planetaQueOrbita;
         this.distanciaOrbitaMax=distanciaOrbitaMax;
@@ -101,12 +101,12 @@ public class Satelit extends Astre{
         this.temperatura = temperatura;
     }
 
-    public String getGalaxia() {
-        return galaxia;
+    public String getPeriodeOrbital() {
+        return periodeOrbital;
     }
 
-    public void setGalaxia(String galaxia) {
-        this.galaxia = galaxia;
+    public void setPeriodeOrbital(String galaxia) {
+        this.periodeOrbital = galaxia;
     }
 
     @Override

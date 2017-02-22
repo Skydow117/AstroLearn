@@ -13,6 +13,7 @@ public class Estrella extends Astre {
 
     private String brillantor;
     private long anysFinsApagar;
+    private String galaxia;
 
     public Estrella() {
     }
@@ -33,6 +34,14 @@ public class Estrella extends Astre {
     @Override
     public double calcularVolum() {
         return 0;
+    }
+
+    public String getGalaxia() {
+        return galaxia;
+    }
+
+    public void setGalaxia(String galaxia) {
+        this.galaxia = galaxia;
     }
 
     @Override
@@ -84,18 +93,36 @@ public class Estrella extends Astre {
     }
 
     @Override
-    public String getGalaxia() {
-        return galaxia;
+    public String getPeriodeOrbital() {
+        return periodeOrbital;
     }
 
     @Override
-    public void setGalaxia(String galaxia) {
-        this.galaxia = galaxia;
+    public void setPeriodeOrbital(String galaxia) {
+        this.periodeOrbital = galaxia;
     }
 
     @Override
     public String getDescripcio() {
         return this.descripcio;
     }
+
+    public String getBrillantor() {
+        return brillantor;
+    }
+
+    public void setBrillantor(String brillantor) {
+        this.brillantor = brillantor;
+    }
+
+    public long getAnysFinsApagar() {
+        return anysFinsApagar;
+    }
+
+    public void setAnysFinsApagar(long anysFinsApagar) {
+        this.anysFinsApagar = anysFinsApagar;
+    }
+    
+    
 
 }

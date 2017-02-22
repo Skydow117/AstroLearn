@@ -2,90 +2,138 @@
     <astre>
         <tipus>planeta</tipus>
         <nom>Mercuri</nom>
-        <descripcio>El més pròxim al Sol.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <distanciaestrella>66666</distanciaestrella>
-        <anells>true</anells>
+        <descripcio>Mercuri és el planeta més proper al Sol i el més petit del sistema solar. Fa una volta al Sol cada 88 dies. Mercuri és brillant quan es veu des de la Terra, amb una magnitud aparent de −2,0 a 5,5, però no es veu fàcilment, ja que la seva separació angular amb el Sol és només de 28,3°. Tan sols es pot veure a l'alba i al crepuscle. Se'n sap relativament poc; la primera missió d'exploració de Mercuri va ser la del Mariner 10 que, entre 1974 i 1975, solament va cartografiar aproximadament el 45% de la superfície del planeta. La segona és la sonda MESSENGER, que n'ha cartografiat l'altre 30% durant la seva aproximació el 14 de gener del 2008. Va fer-hi un altre vol el 29 de setembre del 2009.Una gran part de l'hemisferi no cartografiat per la Mariner 10 s'ha cartografiat amb aquests vols. La sonda va entrar reeixidament en una òrbita el·líptica al voltant del planeta el 18 de març del 2011; la primera imatge orbital de Mercuri es va obtenir el 29 de març del 2011.</descripcio>
+        <diametre>4879</diametre>
+        <massa>3.285</massa>
+        <volum>0.056</volum>
+        <temperatura>166</temperatura>
+        <periodeorbital>88</periodeorbital>
+        <distanciaestrella>57910000</distanciaestrella>
+        <anells>false</anells>
     </astre>
     <astre>
         <tipus>planeta</tipus>
         <nom>Venus</nom>
-        <descripcio>Entre Mercuri i la Terra.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <distanciaestrella>66666</distanciaestrella>
-        <anells>true</anells>
+        <descripcio>Venus és el segon planeta en proximitat al Sol, i l'orbita cada 224,7 dies terrestres. El planeta s'anomena així en honor a Venus, la dea romana de l'amor. Sense comptar la Lluna, és l'objecte natural més brillant al cel nocturn, arribant a una magnitud aparent de −4,6. Com que Venus és més interior que la Terra, sempre apareix a prop del Sol: la seva elongació arriba a un màxim de 47,8°. La brillantor màxima de Venus és poc abans de l'alba o poc després de la posta, raó per la qual de vegades se l'anomena l'estrella del matí o l'estrella de la tarda. Es classifica com a planeta terrestre, i de vegades se l'anomena el planeta germà de la Terra, perquè són similars en mida, gravetat, i composició general. Venus està cobert per una capa opaca de núvols altament reflectors d'àcid sulfúric, cosa que impedeix l'observació de la superfície amb llum visible.</descripcio>
+        <diametre>12104</diametre>
+        <massa>4.867</massa>
+        <volum>0.866</volum>
+        <temperatura>463.85</temperatura>
+        <periodeorbital>224</periodeorbital>
+        <distanciaestrella>108200000</distanciaestrella>
+        <anells>false</anells>
     </astre>
     <astre>
         <tipus>planeta</tipus>
         <nom>Terra</nom>
         <descripcio>Descripció: La Terra és el tercer planeta en distància respecte al Sol, el més dens i el cinquè en mida dels vuit planetes del sistema solar. És també el més gran dels quatre planetes terrestres del sistema solar. De vegades s'anomena món o el planeta blau. Hi habiten milions d'espècies, inclosos els humans; i és l'únic astre on se sap que hi ha vida.El planeta es va formar fa aproximadament 4.600 milions d'anys, i hi va aparèixer vida en mil milions d'anys.La biosfera de la Terra ha alternat significativament l'atmosfera i altres condicions abiòtiques, permetent la proliferació d'organismes aeròbics i la formació de la capa d'ozó que, juntament amb el camp magnètic terrestre, bloqueja la radiació solar perjudicial. Les propietats físiques de la Terra, així com la seva història geològica i òrbita, han permès que la vida persisteixi durant aquest període.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <distanciaestrella>66666</distanciaestrella>
-        <anells>true</anells>
+        <diametre>12742</diametre>
+        <massa>5.972</massa>
+        <volum>1.08321</volum>
+        <temperatura>14.05</temperatura>
+        <periodeorbital>365</periodeorbital>
+        <distanciaestrella>149600000</distanciaestrella>
+        <anells>false</anells>
     </astre>
     <astre>
         <tipus>planeta</tipus>
         <nom>Mart</nom>
         <descripcio>Mart és el quart planeta del sistema solar segons la distància al Sol i el segon planeta més petit, després de Mercuri. El seu nom ve del déu de la guerra romà, i sovint se'l descriu com al "planeta vermell" o "planeta roig" a causa de la seva aparença vermellosa. És una planeta tel·lúric amb una tènue atmosfera, i té característiques superficials que recorden els cràters d'impacte de la Lluna i els volcans, valls, deserts i els casquets polars de la Terra. El període de rotació i els cicles estacionals de Mart són prou similars als de la Terra, ja que és a causa de la inclinació que hi ha estacions. A Mart hi ha Olympus Mons, la segona muntanya més alta del sistema solar (la més alta d'un planeta) i Valles Marineris, un dels canyons més grans. La llisa vall boreal que cobreix el 40% del planeta hauria pogut ser causada per l'impacte d'un objecte en el passat. Mart té dues llunes: Fobos i Deimos, que són petites i de forma irregular. És possible que es tractin d'asteroides capturats, de manera similar a (5261) Eureka, un troià de Mart.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <distanciaestrella>66666</distanciaestrella>
+        <diametre>6779</diametre>
+        <massa>6.39</massa>
+        <volum>0.151</volum>
+        <temperatura>-46</temperatura>
+        <periodeorbital>686</periodeorbital>
+        <distanciaestrella>227900000</distanciaestrella>
+        <anells>false</anells>
+    </astre>
+    <astre>
+        <tipus>planeta</tipus>
+        <nom>Júpiter</nom>
+        <descripcio>Júpiter és el planeta més gran del sistema solar i el cinquè segons la seva distància al Sol. Té un diàmetre de 142.984 km (unes 11 vegades el de la Terra). La seva òrbita se situa aproximadament a 5 UA (750 000 000 km) del Sol, entre les òrbites de Mart i Saturn. És un gegant gasós format principalment per hidrogen i heli sense una superfície interior definida. La seva característica més destacable és la Gran Taca Vermella, un enorme anticicló situat en les latituds tropicals de l'hemisferi sud. Va ser descobert en l'antiguitat i rep el seu nom del pare dels déus de la mitologia romana, aquell al qual els grecs anomenaven Zeus i els romans Júpiter. És el planeta amb el nombre més gran de satèl·lits coneguts, amb un total de 63. Els més importants són els quatre satèl·lits galileans: Ió, Europa, Ganimedes i Cal·listo.</descripcio>
+        <diametre>139822</diametre>
+        <massa>1.898</massa>
+        <volum>1321.3</volum>
+        <temperatura>-121.15</temperatura>
+        <periodeorbital>4331.572</periodeorbital>
+        <distanciaestrella>778500000</distanciaestrella>
+        <anells>true</anells>
+    </astre>
+    <astre>
+        <tipus>planeta</tipus>
+        <nom>Saturn</nom>
+        <descripcio>ESaturn és el sisè planeta en ordre de proximitat al Sol i el segon més gran del sistema solar, després de Júpiter. Es classifica com un gegant gasós o jovià, que significa 'semblant a Júpiter'. S'anomena així en honor al déu romà Saturnus, equivalent al déu grec Kronos (el pare tità de Zeus), al babiloni Ninurta i a l'hindú Shani. El símbol de Saturn representa la falç del déu romà (en Unicode: ♄). El planeta Saturn està compost d'hidrogen, amb petites proporcions d'heli i traces d'altres elements. L'interior consisteix en un petit nucli de roca i gel, envoltat d'una capa gruixuda d'hidrogen metàl·lic i una capa gasosa exterior. L'atmosfera exterior té una aparença generalment uniforme, encara que hi poden aparèixer alguns detalls duradors. A Saturn, els vents poden arribar a una velocitat de 1.800 km/h, i són significativament més ràpids que els de Júpiter. Saturn té un camp magnètic planetari d'intensitat intermèdia entre el de la Terra i el més potent de Júpiter.</descripcio>
+        <diametre>116.464</diametre>
+        <massa>5.683</massa>
+        <volum>763.59</volum>
+        <temperatura>-130.15</temperatura>
+        <periodeorbital>10832.327</periodeorbital>
+        <distanciaestrella>1429000000</distanciaestrella>
+        <anells>true</anells>
+    </astre>
+    <astre>
+        <tipus>planeta</tipus>
+        <nom>Urà</nom>
+        <descripcio>Urà és el setè planeta des del Sol, el tercer més gran i el quart amb major massa del Sistema Solar. S'anomena en honor de la divinitat grega del cel Urà (grec antic Οὐρανός) el pare de Cronos (Saturn) i l'avi de Zeus (Júpiter). Encara que és visible a ull nu com els altres cinc planetes clàssics, mai no va ser reconegut com a planeta pels observadors antics a causa de la lentitud de la seva òrbita. Sir William Herschel va anunciar el seu descobriment el 13 de març de 1781, expandint els límits coneguts del Sistema Solar per primera vegada en la història moderna. També va ser el primer descobriment d'un planeta utilitzant un telescopi.</descripcio>
+        <diametre>50724</diametre>
+        <massa>8.681</massa>
+        <volum>63086</volum>
+        <temperatura>-205.2</temperatura>
+        <periodeorbital>30799.095</periodeorbital>
+        <distanciaestrella>287100000</distanciaestrella>
+        <anells>true</anells>
+    </astre>
+    <astre>
+        <tipus>planeta</tipus>
+        <nom>Neptú</nom>
+        <descripcio>Neptú és el vuitè planeta en distància respecte al Sol i el més llunyà del sistema solar. S'anomena en honor al déu romà del mar, i és el quart planeta en diàmetre i el tercer més gran per massa. La seva massa és 17 vegades la de la Terra i lleugerament més massiu que el seu planeta "bessó" Urà, que té 15 masses terrestres i no és tan dens.De mitjana, Neptú gira entorn del Sol a una distància de 30,1 UA. El seu símbol astronòmic és Símbol astronòmic de Neptú., una versió estilitzada del trident del déu Neptú. Va ser descobert el 23 de setembre de 1846, i esdevingué així el primer planeta a ser descobert mitjançant prediccions matemàtiques en lloc d'observació empírica. A causa de canvis inexplicats en l'òrbita d'Urà, Alexis Bouvard va deduir que la seva òrbita era pertorbada gravitacionalment per un planeta desconegut. Posteriorment, Johann Galle el va observar a menys d'un grau de la posició que Urbain Le Verrier havia predit. El seu satèl·lit més gran, Tritó va ser descobert seguidament, si bé no es van descobrir la resta de 12 llunes fins al segle XX, emprant telescopis. Només una sonda ha visitat Neptú (Voyager 2), que va sobrevolar el planeta el 25 d'agost de 1989.</descripcio>
+        <diametre>49244</diametre>
+        <massa>1.024</massa>
+        <volum>57.74</volum>
+        <temperatura>-220</temperatura>
+        <periodeorbital>60190</periodeorbital>
+        <distanciaestrella>449800000</distanciaestrella>
         <anells>true</anells>
     </astre>
     <astre>
         <tipus>satelit</tipus>
         <nom>Lluna</nom>
-        <descripcio>El satel·lit de la Terra.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <anells>true</anells>
+        <descripcio>La Lluna és l'únic satèl·lit natural de la Terra. Encara que no és el satèl·lit més gran del sistema solar, és el més gran en proporció a la mida del cos que orbita (el seu primari) i, després del satèl·lit de Júpiter Io, és el segon satèl·lit més dens dels satèl·lits dels quals se'n coneix la densitat. La Lluna es troba en rotació síncrona amb la Terra: sempre li mostra la mateixa cara, amb la seva cara visible marcada pels foscs mars volcànics que emplenen les valls entre els brillants altiplans de l'escorça i els prominents cràters d'impacte. És l'objecte més lluminós del cel després del Sol. Encara que apareix com un cos d'un blanc molt brillant, la seva superfície és fosca i d'una reflectància tan sols una mica superior a la de l'asfalt. La seva prominència en el cel i el seu cicle regular de fases l'han convertida, des de l'antiguitat, en una important influència cultural sobre el llenguatge, el calendari, l'art i la mitologia. La influència gravitatòria de la Lluna produeix les marees oceàniques i el petit allargament del dia. </descripcio>
+        <diametre>3.474</diametre>
+        <massa>7.349</massa>
+        <volum>0.020</volum>
+        <temperatura>-153</temperatura>
+        <periodeorbital>27.321</periodeorbital>
+        <anells>false</anells>
         <planetaorbita>Terra</planetaorbita>
-        <distanciaorbitamax>200</distanciaorbitamax>
-        <distanciaorbitamin>50</distanciaorbitamin>
+        <distanciaorbitamax>384400</distanciaorbitamax>
+        <distanciaorbitamin>384400</distanciaorbitamin>
     </astre>
     <astre>
         <tipus>satelit</tipus>
         <nom>Rea</nom>
-        <descripcio>Un dels satel·lits de Saturn.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
-        <anells>true</anells>
-        <planetaorbita>Jupiter</planetaorbita>
-        <distanciaorbitamax>200</distanciaorbitamax>
+        <descripcio>Rea és el segon satèl·lit més gran de Saturn. Va ser descobert per Giovanni Cassini el 1672. També se l'anomena Saturn V.Rea és un cos esfèric de 1528 km de diàmetre, el segon més gran dels satèl·lits de Saturn, que orbita a 527.040 km de Saturn (8,75 vegades el seu radi equatorial) en la zona exterior a l'anell E. Posseeix una òrbita circular, lleugerament inclinada respecte a l'equador del planeta i completa una revolució cada 4 dies i mig. A diferència de Tità, que és l'única de les llunes de Saturn que en té, no se li coneix atmosfera, però sí un anell d'uns 1.500 km de diàmetre, essent l'únic cos no planetari conegut a posseir-ne un. La seva densitat és força baixa (1.240 kg/m3) lo que indica que està composta, bàsicament, de gel d'aigua però posseïx un nucli de roca que comprèn menys d'un terç de la massa total del satèl·lit. La temperatura a la cara il·luminada pel Sol és de -174 °C mentre que a la cara fosca oscil·la entre els -200 °C i els -220 °C. En alguns aspectes és semblant a Dione: els dos tenen una composició i una albedo semblants, cosa que fa pensar que han tingut una història geològica similar. Una altra característica que comparteix amb Dione és la seva rotació síncrona, és a dir, que el període de rotació i el període orbital són iguals. Això implica que una cara o hemisferi del satèl·lit precedeixi sempre a l'altra en el moviment orbital al voltant del planeta.</descripcio>
+        <diametre>375</diametre>
+        <massa>2.32</massa>
+        <volum>0.005</volum>
+        <temperatura>-220</temperatura>
+        <periodeorbital>212</periodeorbital>
+        <anells>false</anells>
+        <planetaorbita>Saturn</planetaorbita>
+        <distanciaorbitamax>527000</distanciaorbitamax>
         <distanciaorbitamin>50</distanciaorbitamin>
     </astre>
     <astre>
         <tipus>estrella</tipus>
         <nom>Sol</nom>
-        <descripcio>La nostre estrella.</descripcio>
-        <diametre>111111</diametre>
-        <massa>22222</massa>
-        <volum>33333</volum>
-        <temperatura>44444</temperatura>
-        <galaxia>55555</galaxia>
+        <descripcio>El Sol és un estel situat al centre del sistema solar. La Terra i tots els altres planetes del sistema solar orbiten al seu voltant. Els planetes menors, els cometes, els meteoroides i tot el medi interplanetari que hi ha enmig també orbiten el Sol. Com que és l'estel més pròxim a la Terra (es troba a 150 milions de km), és també l'astre més brillant del firmament. La seva presència o absència en el cel determina el dia i la nit, respectivament. L'energia radiada pel Sol és aprofitada pels éssers fotosintètics, els quals constituïxen la base de la cadena alimentària. Així, és la principal font d'energia de la vida. També aporta l'energia que manté en funcionament els processos climàtics. És un estel de la seqüència principal, de classe espectral G2, cosa que indica que és una mica més gran i calent que un estel mitjà. És una immensa esfera de plasma formada majoritàriament per hidrogen i heli. Radia una gran quantitat d'energia a l'espai mitjançant processos nuclears de fusió. Es va formar fa uns 4.500 milions d'anys, al mateix temps que el sistema solar, i arribarà al final de la seva vida d'aquí a uns 5.000 milions d'anys més. Arribat aquell moment, es convertirà en una gegant vermella i després en una nana blanca.</descripcio>
+        <diametre>1391400</diametre>
+        <massa>1.989</massa>
+        <volum>1300000</volum>
+        <temperatura>5505</temperatura>
+        <galaxia>Vía Làctea</galaxia>
         <anells>true</anells>
-        <anysapagar>888888</anysapagar>
-        <brillantor>6162MU</brillantor>
+        <anysapagar>7500</anysapagar>
+        <brillantor>−26,74m</brillantor>
     </astre>
 </astres>

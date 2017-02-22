@@ -71,12 +71,12 @@ public abstract class Asteroide extends Astre {
         this.temperatura = temperatura;
     }
 
-    public String getGalaxia() {
-        return galaxia;
+    public String getPeriodeOrbital() {
+        return periodeOrbital;
     }
 
-    public void setGalaxia(String galaxia) {
-        this.galaxia = galaxia;
+    public void setPeriodeOrbital(String galaxia) {
+        this.periodeOrbital = galaxia;
     }
 
     @Override

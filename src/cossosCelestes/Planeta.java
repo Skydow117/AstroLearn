@@ -23,18 +23,20 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.descripcio = descripcio;
     }
 
-    public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre,boolean anells,double massa,double volum,float temperatura,String galaxia) {
+    public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre, boolean anells, double massa, double volum, float temperatura, String periodeOrbital) {
         this.nom = nom;
         this.descripcio = descripcio;
         this.distanciaEstrella = distanciaEstrella;
         this.diametre = diametre;
-        this.anells=anells;
-        this.volum=volum;
-        this.massa=massa;
-        this.galaxia=galaxia;
-        this.temperatura=temperatura;
+        this.anells = anells;
+        this.volum = volum;
+        this.massa = massa;
+        this.periodeOrbital = periodeOrbital;
+        this.temperatura = temperatura;
 
     }
+    
+    
 
     public Planeta(int periode, double massa, int distanciaEstrella) {
         this.massa = massa;
@@ -49,6 +51,10 @@ public class Planeta extends Astre implements Comparable<Planeta> {
 
     public void setDistanciaEstrella(int distanciaEstrella) {
         this.distanciaEstrella = distanciaEstrella;
+    }
+    
+    public double getVolum(){
+    return this.volum;
     }
 
     public int getPeriode() {
@@ -99,10 +105,6 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.massa = massa;
     }
 
-    public double getVolum() {
-        return volum;
-    }
-
     public void setVolum(double volum) {
         this.volum = volum;
     }
@@ -115,17 +117,21 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.temperatura = temperatura;
     }
 
-    public String getGalaxia() {
-        return galaxia;
+    public String getPeriodeOrbital() {
+        return periodeOrbital;
     }
 
-    public void setGalaxia(String galaxia) {
-        this.galaxia = galaxia;
+    public void setPeriodeOrbital(String galaxia) {
+        this.periodeOrbital = galaxia;
     }
 
     @Override
     public double calcularVolum() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean getAnells() {
+        return anells;
     }
 
     //proximitat al sol

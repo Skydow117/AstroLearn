@@ -63,7 +63,7 @@ public class LectorXML {
 
                     if (obtenirContingut("tipus", element).equals("planeta")) {
 
-                        Planeta planeta = new Planeta(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Integer.parseInt(obtenirContingut("distanciaestrella", element)), Double.parseDouble(obtenirContingut("diametre", element)), Boolean.parseBoolean(obtenirContingut("anells", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("galaxia", element));
+                        Planeta planeta = new Planeta(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Integer.parseInt(obtenirContingut("distanciaestrella", element)), Double.parseDouble(obtenirContingut("diametre", element)), Boolean.parseBoolean(obtenirContingut("anells", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("periodeorbital", element));
 
                         astres.afegir(planeta);
                         System.out.println(planeta.getNom());
@@ -72,7 +72,7 @@ public class LectorXML {
 
                     if (obtenirContingut("tipus", element).equals("satelit")) {
 
-                        Satelit satelit = new Satelit(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Double.parseDouble(obtenirContingut("diametre", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("galaxia", element), obtenirContingut("planetaorbita", element), Double.parseDouble(obtenirContingut("distanciaorbitamax", element)), Double.parseDouble(obtenirContingut("distanciaorbitamin", element)));
+                        Satelit satelit = new Satelit(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Double.parseDouble(obtenirContingut("diametre", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("periodeorbital", element), obtenirContingut("planetaorbita", element), Double.parseDouble(obtenirContingut("distanciaorbitamax", element)), Double.parseDouble(obtenirContingut("distanciaorbitamin", element)));
 
                         astres.afegir(satelit);
                         System.out.println(satelit.getNom());

@@ -3,6 +3,7 @@ package animacions;
 import java.util.List;
 import cossosCelestes.*;
 import java.util.Random;
+import javafx.animation.Interpolator;
 import principal.*;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
@@ -43,10 +44,8 @@ public class Cercles {
         System.out.println(p);
 
         path.getElements().add(new MoveTo(x, y - distance));
-        for (int i = 0; i < 1 * 10; i++) {
-            path.getElements().add(new CubicCurveTo(x - distance, y - distance, x - distance, y + distance, x, y + distance));
-            path.getElements().add(new CubicCurveTo(x + distance, y + distance, x + distance, y - distance, x, y - distance));
-        }
+        path.getElements().add(new CubicCurveTo(x - distance, y - distance, x - distance, y + distance, x, y + distance));
+        path.getElements().add(new CubicCurveTo(x + distance, y + distance, x + distance, y - distance, x, y - distance));
 
         path.setOpacity(pathOpacity);
         return path;
@@ -61,10 +60,11 @@ public class Cercles {
      */
     private PathTransition generatePathTransition(final Shape shape, final Path path, int periode) {
         final PathTransition pathTransition = new PathTransition();
-        pathTransition.setDuration(Duration.seconds(periode * 2));
+        pathTransition.setDuration(Duration.seconds(periode/3));
         pathTransition.setDelay(Duration.seconds(0));
         pathTransition.setPath(path);
         pathTransition.setNode(shape);
+        pathTransition.setInterpolator(Interpolator.LINEAR);
         pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pathTransition.setCycleCount(Timeline.INDEFINITE);
         pathTransition.setAutoReverse(false);
@@ -101,12 +101,12 @@ public class Cercles {
 
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-        double x= primaryScreenBounds.getMaxX();
-        double y= primaryScreenBounds.getMaxY()+300;
-        
-        for (int i = 0; i < y; i+=r.nextInt(15 - 1) + 1) {
-            for (int j = 0; j < x; j+=r.nextInt(High - Low) + Low) {
-                group.getChildren().add(new Circle(r.nextInt((j+15) - j) + j,r.nextInt((i+15) - i) + i,0.35 , Color.WHITE));
+        double x = primaryScreenBounds.getMaxX();
+        double y = primaryScreenBounds.getMaxY() + 300;
+
+        for (int i = 0; i < y; i += r.nextInt(15 - 1) + 1) {
+            for (int j = 0; j < x; j += r.nextInt(High - Low) + Low) {
+                group.getChildren().add(new Circle(r.nextInt((j + 15) - j) + j, r.nextInt((i + 15) - i) + i, 0.35, Color.WHITE));
             }
         }
 
