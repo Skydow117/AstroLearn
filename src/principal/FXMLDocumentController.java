@@ -33,6 +33,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -41,6 +42,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -147,6 +149,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TabPane tabGroup01;
 
+    final double SCALE_DELTA = 1.1;
     private ArrayList<RadioButton> radioGrup = new ArrayList();
     private List<URL> imatgesToggleGroup = new ArrayList();
     private LectorXML lector = new LectorXML();
@@ -367,39 +370,40 @@ public class FXMLDocumentController implements Initializable {
     public void canviarTextPlaneta(Astre astre) {
         lTitol.setText(astre.getNom());
         lDescripcio.setText(astre.getDescripcio());
-        label00.setText("Diàmetre : " + astre.getDiametre());
-        label01.setText("Massa : " + astre.getMassa());
-        label02.setText("Volum : " + astre.getVolum());
-        label03.setText("Temperatura : " + astre.getTemperatura());
+        label00.setText("Diàmetre : " + astre.getDiametre() + " km");
+        label01.setText("Massa : " + astre.getMassa() + "E24 kg");
+        if (astre.getNom().equals("Terra")) {
+            label02.setText("Volum : " + astre.getVolum() + " km³");
+
+        } else {
+            label02.setText("Volum : " + astre.getVolum() + " terres");
+        }
+        label03.setText("Temperatura : " + astre.getTemperatura() + " °C");
 
         if (astre instanceof Planeta) {
             Planeta planetaCanv = (Planeta) astre;
-            label05.setText("Distancia fins la estrella : " + planetaCanv.getDistanciaEstrella());
-            label04.setText("Periode Orbital : " + planetaCanv.getPeriodeOrbital());
+            label05.setText("Distancia fins la estrella : " + planetaCanv.getDistanciaEstrella() + " km");
+            label04.setText("Periode Orbital : " + planetaCanv.getPeriodeOrbital() + " díes terrestres");
 
             if (planetaCanv.getAnells()) {
-                label06.setText("Té anells : Cert");
+                label06.setText("Té anells");
 
             } else {
-                label06.setText("Té anells : Fals");
+                label06.setText("No té anells");
 
             }
-
         }
-
         if (astre instanceof Estrella) {
             Estrella estrellaCanv = (Estrella) astre;
             label05.setText("Anys fins que s'apagui : " + estrellaCanv.getAnysFinsApagar());
             label06.setText("Brillantor : " + estrellaCanv.getBrillantor());
             label04.setText("Galàxia : " + estrellaCanv.getGalaxia());
-
         }
         if (astre instanceof Satelit) {
             Satelit satelitCanv = (Satelit) astre;
             label05.setText("Planeta que orbita : " + satelitCanv.getPlanetaQueOrbita());
-            label06.setText("Distància del planeta : " + satelitCanv.getDistanciaOrbitaMax());
-            label04.setText("Periode Orbital : " + satelitCanv.getPeriodeOrbital());
-
+            label06.setText("Distància del planeta : " + satelitCanv.getDistanciaOrbitaMax() + " km");
+            label04.setText("Periode Orbital : " + satelitCanv.getPeriodeOrbital() + "díes terrestres");
         }
     }
 
@@ -463,7 +467,7 @@ public class FXMLDocumentController implements Initializable {
                         }
                     });
                     i++;
-                    Thread.sleep(12000);
+                    Thread.sleep(4000);
                 }
             }
         };
@@ -477,7 +481,41 @@ public class FXMLDocumentController implements Initializable {
         try {
 
             hbContenidor.fillHeightProperty();
-            hbContenidor.getChildren().add(cercle.crearSubscena(hbContenidor.heightProperty(), hbContenidor.widthProperty()));
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
+            int x = (int) primaryScreenBounds.getMaxX();
+            int y = (int) primaryScreenBounds.getMaxY() + 300;
+
+            SubScene s = cercle.crearSubscena(x, y, hbContenidor.heightProperty(), hbContenidor.widthProperty());
+            hbContenidor.getChildren().add(s);
+
+            hbContenidor.setOnScroll(new EventHandler<ScrollEvent>() {
+                @Override
+                public void handle(ScrollEvent event) {
+                    event.consume();
+
+                    if (event.getDeltaY() == 0) {
+                        return;
+                    }
+
+                    double scaleFactor
+                            = (event.getDeltaY() > 0)
+                                    ? SCALE_DELTA
+                                    : 1 / SCALE_DELTA;
+
+                    s.setScaleX(s.getScaleX() * scaleFactor);
+                    s.setScaleY(s.getScaleY() * scaleFactor);
+                    s.setWidth(s.getWidth() / scaleFactor);
+                    s.setHeight(s.getHeight() / scaleFactor);
+                    //s.prefHeight(1000);
+                    //s.prefWidth(1000);
+                    s.autosize();
+                    //s.heightProperty().bind(hbContenidor.heightProperty());
+                    //s.widthProperty().bind(hbContenidor.widthProperty());
+                }
+            });
+
             iniciarToggleGroup();
             valorsPerDefecte();
 
