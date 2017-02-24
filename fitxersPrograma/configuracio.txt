@@ -1,6 +1,6 @@
 #!#Conproplang#¡#
 ##comença##
-##pantallaCompleta->fals
+##pantallaCompleta->cert
 ##ampladaPantalla->1440.0
-##alçadaPantalla->823.0
+##alçadaPantalla->900.0
 ##acaba##

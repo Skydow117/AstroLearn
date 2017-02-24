@@ -1,18 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package comparador;
 
 import cossosCelestes.Planeta;
 import java.util.Comparator;
 
 /**
- *
- * @author davidcastillomartinez
+ * Comparador de planetes.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class ComparadorPlanetes implements Comparator<Planeta> {
+    
+    /**
+     * Compara dos planetes per la seva distancia del sol.
+     * 
+     * @param a Planeta
+     * @param b Planeta
+     * @return Integer
+     */
     @Override
     public int compare(Planeta a, Planeta b) {
                 

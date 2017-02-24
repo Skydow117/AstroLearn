@@ -28,8 +28,19 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Main
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
+ */
 public class Main extends Application {
 
+    /**
+     * Crida al fxml i prepara l'stage amb l'última configuració guardada.
+     * 
+     * @param primaryStage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -43,7 +54,9 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        
+        /**
+         * Guarda les dades abans de que es tanqui el programa.
+         */
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
                 System.out.println(primaryStage.isFullScreen());
@@ -55,15 +68,27 @@ public class Main extends Application {
 
     }
 
+    /**
+     * Classe que administra el fitxer de configuració.
+     */
     private class administradorDeConfiguracio {
 
         private Stage stage;
 
+        /**
+         * Constructor que crea el directori utilitzat si no existeix.
+         * 
+         * @param stage 
+         */
         public administradorDeConfiguracio(Stage stage) {
             this.stage = stage;
             crearDirectori();
         }
 
+        
+        /**
+         * Crea el directori si no existeix.
+         */
         public void crearDirectori() {
 
             File theDir = new File("fitxersPrograma");
@@ -85,6 +110,9 @@ public class Main extends Application {
 
         }
 
+        /**
+         * Recupera les dades del fitxar i les aplica.
+         */
         public void recuperar() {
 
             LectorConfiguracio lector = new LectorConfiguracio();
@@ -92,6 +120,9 @@ public class Main extends Application {
 
         }
 
+        /**
+         * Salva les dades al fitxer.
+         */
         public void salvar() {
 
             EscriptorConfiguracio escriptor = new EscriptorConfiguracio();
@@ -99,6 +130,11 @@ public class Main extends Application {
 
         }
 
+        /**
+         * Aplica la configuració a l'stage.
+         * 
+         * @param normes 
+         */
         public void aplicar(ArrayList<String> normes) {
 
             boolean canviatCompleta = false;
@@ -141,8 +177,6 @@ public class Main extends Application {
             }
         }
 
-        //primaryStage.setWidth(200);
-        //primaryStage.setHeight(200);
     }
 
     public static void main(String[] args) {

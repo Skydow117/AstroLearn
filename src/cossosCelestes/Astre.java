@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cossosCelestes;
 
 /**
- *
- * @author davidcastillomartinez
+ * Classe per definifir astres.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public abstract class Astre {
 
@@ -19,6 +15,11 @@ public abstract class Astre {
     float temperatura;
     String periodeOrbital;
 
+    /**
+     * Calcula el volum i el retorna.
+     * 
+     * @return Double
+     */
     public abstract double calcularVolum();
 
     public abstract void setNom(String nom);

@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package excepcionsPropies;
 
 /**
- *
- * @author davidcastillomartinez
+ * Excepció personalitzada per quan no troba el fitxer xml.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class XmlNoTrobatException extends Exception {
     public XmlNoTrobatException(String message) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fitxerConfiguracio;
 
 import java.io.BufferedWriter;
@@ -11,11 +6,18 @@ import java.io.FileWriter;
 import javafx.stage.Stage;
 
 /**
- *
- * @author davidcastillomartinez
+ *  Classe que escriu el fitxer que guarda la configuració de la resolució.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class EscriptorConfiguracio {
 
+    /**
+     * Escriu el fitxer basantse en el stage proporcionat.
+     * I seguint les normes proporcionades.
+     * 
+     * @param stage 
+     */
     public void escriureFitxer(Stage stage) {
 
         BufferedWriter writer = null;

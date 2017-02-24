@@ -13,6 +13,8 @@ import cossosCelestes.Satelit;
 import excepcionsPropies.XmlNoTrobatException;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,18 +30,28 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- *
- * @author davidcastillomartinez
+ * Classe que llegeix el fitxer xml amb els astres i el fitxer amb l'ultim astre visitat.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class LectorXML {
 
+    /**
+     * Constructor buit.
+     */
     public LectorXML() {
 
     }
 
     AstreList<Astre> astres = new AstreList<Astre>();
+    LinkedList<Planeta> planetes = new LinkedList<Planeta>();
     private int ultimPlaneta;
 
+    /**
+     * Adquireix l'informació dels xml i la guarda en els atributs de la classe.
+     * 
+     * @throws XmlNoTrobatException 
+     */
     public void adquirir() throws XmlNoTrobatException {
         try {
 
@@ -66,6 +78,7 @@ public class LectorXML {
                         Planeta planeta = new Planeta(obtenirContingut("nom", element), obtenirContingut("descripcio", element), Integer.parseInt(obtenirContingut("distanciaestrella", element)), Double.parseDouble(obtenirContingut("diametre", element)), Boolean.parseBoolean(obtenirContingut("anells", element)), Double.parseDouble(obtenirContingut("massa", element)), Double.parseDouble(obtenirContingut("volum", element)), Float.parseFloat(obtenirContingut("temperatura", element)), obtenirContingut("periodeorbital", element));
 
                         astres.afegir(planeta);
+                        planetes.add(planeta);
                         System.out.println(planeta.getNom());
                         System.out.println(planeta.getDescripcio());
                     }
@@ -119,18 +132,35 @@ public class LectorXML {
             excepcio.printStackTrace();
             throw excepcio;
         }
+        
+        Collections.sort(planetes);
+        
     }
 
+    
     public int getUltimPlaneta() {
         return ultimPlaneta;
     }
 
+    /**
+     * Obté el contingut del node amb el nom indicat.
+     * 
+     * @param etiqueta
+     * @param element
+     * @return String
+     */
     private static String obtenirContingut(String etiqueta, Element element) {
         NodeList nodes = element.getElementsByTagName(etiqueta).item(0).getChildNodes();
         Node node = (Node) nodes.item(0);
         return node.getNodeValue();
     }
 
+    /**
+     * Retorna el Astre a la posició de l'index.
+     * 
+     * @param index
+     * @return Astre
+     */
     public Astre obtenirPlaneta(int index) {
 
         if (index <= astres.mida()) {

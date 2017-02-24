@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cossosCelestes;
 
 /**
- *
- * @author davidcastillomartinez
+ * Classe que representa un astre de tipus estrella.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class Estrella extends Astre {
 
@@ -15,9 +11,25 @@ public class Estrella extends Astre {
     private long anysFinsApagar;
     private String galaxia;
 
+    /**
+     * Constructor buit.
+     */
     public Estrella() {
     }
 
+    /**
+     * Constructor amb tots els atributs.
+     * 
+     * @param nom
+     * @param descripcio
+     * @param brillantor
+     * @param diametre
+     * @param anysFinsApagar
+     * @param massa
+     * @param volum
+     * @param temperatura
+     * @param galaxia 
+     */
     public Estrella(String nom, String descripcio, String brillantor, double diametre, long anysFinsApagar, double massa, double volum, float temperatura, String galaxia) {
         this.nom = nom;
         this.descripcio = descripcio;
@@ -31,6 +43,11 @@ public class Estrella extends Astre {
 
     }
 
+    /**
+     * Calcula el volum i el retorna.
+     * 
+     * @return Double
+     */
     @Override
     public double calcularVolum() {
         return 0;

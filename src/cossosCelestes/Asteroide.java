@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cossosCelestes;
 
 /**
- *
- * @author davidcastillomartinez
+ * Classe Asteroide. Per guardar les dades d'un esteroide. És filla d'Astre.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public abstract class Asteroide extends Astre {
 
@@ -15,9 +11,18 @@ public abstract class Asteroide extends Astre {
     private float densitat;
     private String areaDeProximitat;
 
+    /**
+     * Constructor buit.
+     */
     public Asteroide() {
     }
 
+    /**
+     * Constructor amb el nom i la descripció.
+     * 
+     * @param nom nom
+     * @param descripcio descripcio
+     */
     public Asteroide(String nom, String descripcio) {
         this.nom = nom;
         this.descripcio = descripcio;
@@ -79,11 +84,26 @@ public abstract class Asteroide extends Astre {
         this.periodeOrbital = galaxia;
     }
 
+    /**
+     * Classe que clacularà el volum.
+     * 
+     * @return double volum 
+     */
     @Override
     public abstract double calcularVolum();
 
+    /**
+     * Classe que clacularà la densitat.
+     * 
+     * @return double densitat 
+     */
     public abstract double calcularDensitat();
 
+    /**
+     * Classe que determinarà la classe espectral de l'asteroide.
+     * 
+     * @return double volum 
+     */
     public abstract double determinarClaseEspectral();
 
 }

@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cossosCelestes;
 
 /**
  *
- * @author davidcastillomartinez
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class Satelit extends Astre{
     
@@ -15,6 +10,20 @@ public class Satelit extends Astre{
     private double distanciaOrbitaMax;
     private double distanciaOrbitaMin;
 
+    /**
+     * Constructor amb tots els atributs
+     * 
+     * @param nom
+     * @param descripcio
+     * @param diametre
+     * @param massa
+     * @param volum
+     * @param temperatura
+     * @param periodeOrbital
+     * @param planetaQueOrbita
+     * @param distanciaOrbitaMax
+     * @param distanciaOrbitaMin 
+     */
     public Satelit(String nom, String descripcio,double diametre,double massa,double volum,float temperatura,String periodeOrbital,String planetaQueOrbita, double distanciaOrbitaMax,double distanciaOrbitaMin ) {
         this.nom = nom;
         this.descripcio = descripcio;
@@ -29,6 +38,7 @@ public class Satelit extends Astre{
        
     }
 
+    
     public String getPlanetaQueOrbita() {
         return planetaQueOrbita;
     }
@@ -109,6 +119,11 @@ public class Satelit extends Astre{
         this.periodeOrbital = galaxia;
     }
 
+    /**
+     * Calcula el volum i el retorna.
+     * 
+     * @return Double 
+     */
     @Override
     public double calcularVolum() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

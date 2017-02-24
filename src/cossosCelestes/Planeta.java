@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cossosCelestes;
 
 /**
  *
- * @author davidcastillomartinez
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class Planeta extends Astre implements Comparable<Planeta> {
 
@@ -15,14 +10,36 @@ public class Planeta extends Astre implements Comparable<Planeta> {
     private int periode;
     private int distanciaEstrella;
 
+    /**
+     * Constructor buit.
+     */
     public Planeta() {
     }
 
+    /**
+     * Constructor amb dos atributs.
+     * 
+     * @param nom
+     * @param descripcio 
+     */
     public Planeta(String nom, String descripcio) {
         this.nom = nom;
         this.descripcio = descripcio;
     }
 
+    /**
+     * Constructor amb tots els atributs.
+     * 
+     * @param nom
+     * @param descripcio
+     * @param distanciaEstrella
+     * @param diametre
+     * @param anells
+     * @param massa
+     * @param volum
+     * @param temperatura
+     * @param periodeOrbital 
+     */
     public Planeta(String nom, String descripcio, int distanciaEstrella, double diametre, boolean anells, double massa, double volum, float temperatura, String periodeOrbital) {
         this.nom = nom;
         this.descripcio = descripcio;
@@ -36,8 +53,13 @@ public class Planeta extends Astre implements Comparable<Planeta> {
 
     }
     
-    
-
+    /**
+     * Constructor amb tres atributs.
+     * 
+     * @param periode
+     * @param massa
+     * @param distanciaEstrella 
+     */
     public Planeta(int periode, double massa, int distanciaEstrella) {
         this.massa = massa;
         this.periode = periode;
@@ -125,16 +147,27 @@ public class Planeta extends Astre implements Comparable<Planeta> {
         this.periodeOrbital = galaxia;
     }
 
+    /**
+     * Calcula el volum i el retona.
+     * 
+     * @return 
+     */
     @Override
     public double calcularVolum() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
     public boolean getAnells() {
         return anells;
     }
 
-    //proximitat al sol
+    /**
+     * Implementació del mètode de comparable que compara planetes depenent de la seva proximitat al sol.
+     * 
+     * @param o
+     * @return int
+     */
     @Override
     public int compareTo(Planeta o) {
         int resultado = 0;

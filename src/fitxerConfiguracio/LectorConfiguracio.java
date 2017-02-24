@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fitxerConfiguracio;
 
 import java.io.BufferedReader;
@@ -13,14 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author davidcastillomartinez
+ * Llegeix el fitxer de configuració creat anteriorment.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class LectorConfiguracio {
 
+    /**
+     * Constructor buit
+     */
     public LectorConfiguracio() {
     }
 
+    /**
+     * Retorna un arrayList d'strings amb el contingut de cada linia de configuració.
+     * 
+     * @return 
+     */
     public ArrayList<String> llegir() {
 
         ArrayList<String> linies = new ArrayList<>();

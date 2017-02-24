@@ -21,14 +21,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.stage.Screen;
 
+/**
+ * Classe que s'utilitza per crear una escena amb les animacions.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
+ */
 public class Cercles {
-
-    /**
-     * Generate Path upon which animation will occur.
-     *
-     * @param pathOpacity The opacity of the path representation.
-     * @return Generated path.
-     */
+    
     private Planeta p1 = new Planeta(8, 87, (int) (57));
     private Planeta p2 = new Planeta(22, 87, (int) (108));
     private Planeta p3 = new Planeta(36, 87, (int) (149));
@@ -38,6 +37,13 @@ public class Cercles {
     private Planeta p7 = new Planeta(3066, 87, (int) (2871));
     private Planeta p8 = new Planeta(5986, 87, (int) (4491));
     
+    /**
+     * Genera una path curva
+     * @param pathOpacity
+     * @param distance
+     * @param subScene
+     * @return Path
+     */
     private Path generateCurvyPath(final double pathOpacity, int distance,SubScene subScene) {
         Path path = new Path();
 
@@ -45,9 +51,9 @@ public class Cercles {
         int y = (int)subScene.getHeight()/2;
         
 
-        path.getElements().add(new MoveTo(x, y - distance));
-        path.getElements().add(new CubicCurveTo(x - distance, y - distance, x - distance, y + distance, x, y + distance));
+        path.getElements().add(new MoveTo(x, y + distance));
         path.getElements().add(new CubicCurveTo(x + distance, y + distance, x + distance, y - distance, x, y - distance));
+        path.getElements().add(new CubicCurveTo(x - distance, y - distance, x - distance, y + distance, x, y + distance));
         
 
         path.setOpacity(pathOpacity);
@@ -55,10 +61,10 @@ public class Cercles {
     }
 
     /**
-     * Generate the path transition.
+     * Genera la path transition
      *
-     * @param shape Shape to travel along path.
-     * @param path Path to be traveled upon.
+     * @param shape Shape Forma
+     * @param path Path Path
      * @return PathTransition.
      */
     private PathTransition generatePathTransition(final Shape shape, final Path path, int periode) {
@@ -76,17 +82,15 @@ public class Cercles {
     }
 
     /**
-     * Determine the path's opacity based on command-line argument if supplied
-     * or zero by default if no numeric value provided.
-     *
-     * @return Opacity to use for path.
+     * Genera la opacitat de la path
+     * @return Opacity 
      */
     private double determinePathOpacity() {
         return 1;
     }
 
     /**
-     * Apply animation, the subject of this class.
+     * Apllica la animacio de les formes pasades, y dels path creats.
      *
      * @param group Group to which animation is applied.
      */
@@ -163,6 +167,15 @@ public class Cercles {
         transition8.play();
     }
 
+    /**
+     * Crea la subscena
+     * @param x1
+     * @param y1
+     * @param y
+     * @param x
+     * @return
+     * @throws Exception 
+     */
     public SubScene crearSubscena(int x1,int y1,ReadOnlyDoubleProperty y, ReadOnlyDoubleProperty x) throws Exception {
         final Group rootGroup = new Group();
         final SubScene scene = new SubScene(rootGroup, x1, y1, true, SceneAntialiasing.BALANCED);

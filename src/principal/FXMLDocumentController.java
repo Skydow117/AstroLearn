@@ -63,8 +63,9 @@ import utilitatXML.EscriptorXML;
 import utilitatXML.LectorXML;
 
 /**
- *
- * @author davidcastillomartinez
+ * Controlador del fxml. Classe que interactua amb l
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class FXMLDocumentController implements Initializable {
 
@@ -157,11 +158,22 @@ public class FXMLDocumentController implements Initializable {
     final ToggleGroup toggle01 = new ToggleGroup();
     public int nDies = 0;
 
+    /**
+     * Es dispara quan clicquem un radioButton.
+     * 
+     * @param event 
+     */
     @FXML
     private void accioRadioButtons(ActionEvent event) {
         canviaAstre(radioGrup.indexOf(toggle01.getSelectedToggle()));
     }
 
+    /**
+     * Es dispara quan triem l'opció d'obrir el fitxer de dades d'xml. I l'obre.
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void obreFitxerDadesXML(ActionEvent event) throws IOException {
         File file = new File("fitxersPrograma/astres.xml");
@@ -171,6 +183,12 @@ public class FXMLDocumentController implements Initializable {
         desktop.open(file);
     }
 
+    /**
+     * Es dispara quan triem l'opció d'obrir el fitxer de de l'ultim astre d'xml. I l'obre.
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void obreFitxerUltimAstreXML(ActionEvent event) throws IOException {
         File file = new File("fitxersPrograma/ultimAstre.xml");
@@ -179,7 +197,13 @@ public class FXMLDocumentController implements Initializable {
 
         desktop.open(file);
     }
-
+    
+    /**
+     * Es dispara quan triem l'opció d'obrir el fitxer de configuració. I l'obre.
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void obreFitxerConfiguracio(ActionEvent event) throws IOException {
         File file = new File("fitxersPrograma/configuracio.txt");
@@ -189,6 +213,12 @@ public class FXMLDocumentController implements Initializable {
         desktop.open(file);
     }
 
+    /**
+     * Obre el diàleg de AboutAstroLearn
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void obreDialeg(ActionEvent event) throws IOException {
         Stage stage = (Stage) apMainAnchor.getScene().getWindow();
@@ -251,11 +281,23 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
+    /**
+     * Es dispara quan trïem tancar la finestra.
+     * 
+     * @param event
+     * @throws IOException
+     * @throws Throwable 
+     */
     @FXML
     private void tancarFinestra(ActionEvent event) throws IOException, Throwable {
         Platform.exit();
     }
 
+    /**
+     * Classe que canvia les dades de l'astre que es mostren per les del indicat.
+     * 
+     * @param index 
+     */
     public void canviaAstre(int index) {
         switch (index) {
 
@@ -362,11 +404,11 @@ public class FXMLDocumentController implements Initializable {
         escriptorX.escriure(String.valueOf(nUltimAstre));
     }
 
-    public void valorsPerDefecte() {
-        imageViewPlanetes.setImage(new Image(imatgesToggleGroup.get(2).toString()));
-
-    }
-
+    /**
+     * Canvia el text de les etiquetes. Afegint així la informació.
+     * 
+     * @param astre 
+     */
     public void canviarTextPlaneta(Astre astre) {
         lTitol.setText(astre.getNom());
         lDescripcio.setText(astre.getDescripcio());
@@ -383,7 +425,7 @@ public class FXMLDocumentController implements Initializable {
         if (astre instanceof Planeta) {
             Planeta planetaCanv = (Planeta) astre;
             label05.setText("Distancia fins la estrella : " + planetaCanv.getDistanciaEstrella() + " km");
-            label04.setText("Periode Orbital : " + planetaCanv.getPeriodeOrbital() + " díes terrestres");
+            label04.setText("Periode Orbital : " + planetaCanv.getPeriodeOrbital() + " dies terrestres");
 
             if (planetaCanv.getAnells()) {
                 label06.setText("Té anells");
@@ -407,6 +449,9 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    /**
+     * Carrega les imatges dels astres.
+     */
     public void carregarImatges() {
 
         ClassLoader cldr = this.getClass().getClassLoader();
@@ -426,6 +471,9 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    /**
+     * Prepara el toggleGroup afegint-hi els radioButtons.
+     */
     public void iniciarToggleGroup() {
 
         radioGrup.add(radioPlanetes01);
@@ -451,9 +499,18 @@ public class FXMLDocumentController implements Initializable {
         carregarImatges();
     }
 
+    /**
+     * Mètode que es crida nomès començar.
+     * 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        /**
+         * Tasca que actualitza la GUI amb els anys terrestres.
+         */
         Task task = new Task<Void>() {
             @Override
             public Void call() throws Exception {
@@ -463,7 +520,7 @@ public class FXMLDocumentController implements Initializable {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            lbDies.setText("Díes terrestres: " + finalI);
+                            lbDies.setText("Anys terrestres: " + finalI);
                         }
                     });
                     i++;
@@ -475,8 +532,6 @@ public class FXMLDocumentController implements Initializable {
         th.setDaemon(true);
         th.start();
 
-        //ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        //executor.scheduleAtFixedRate(contaDies, 0, 3, TimeUnit.SECONDS);
         Cercles cercle = new Cercles();
         try {
 
@@ -508,6 +563,8 @@ public class FXMLDocumentController implements Initializable {
                     s.setScaleY(s.getScaleY() * scaleFactor);
                     s.setWidth(s.getWidth() / scaleFactor);
                     s.setHeight(s.getHeight() / scaleFactor);
+                    s.translateXProperty().set(150);
+                    s.translateYProperty().set(150);
                     //s.prefHeight(1000);
                     //s.prefWidth(1000);
                     s.autosize();
@@ -517,7 +574,6 @@ public class FXMLDocumentController implements Initializable {
             });
 
             iniciarToggleGroup();
-            valorsPerDefecte();
 
             try {
                 lector.adquirir();

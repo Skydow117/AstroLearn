@@ -19,15 +19,24 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- *
- * @author davidcastillomartinez
+ * Crea un xml on guarda l'ultim astre que s'estava mirant.
+ * 
+ * @author davidcastillomartinez i estevecabrerapuigdomenech
  */
 public class EscriptorXML {
 
+    /**
+     * Constructor buit.
+     */
     public EscriptorXML() {
 
     }
 
+    /**
+     * Escriu al xml l'ultim planeta visitat pasantli aquest per paràmetre.
+     * 
+     * @param strAstre 
+     */
     public void escriure(String strAstre) {
 
         try {
